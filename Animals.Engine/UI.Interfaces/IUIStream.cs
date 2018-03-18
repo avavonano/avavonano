@@ -8,6 +8,7 @@ namespace Animals.Engine.UI.Interfaces
 {
     public interface IUIStream
     {
+        bool LoggingOff { get; set; }
         void Talk(string phrase);
     }
 }

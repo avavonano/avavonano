@@ -71,8 +71,9 @@ namespace Animals.UI
         }
         private void cmdStartGame_Click(object sender, EventArgs e)
         {
-            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole);
-            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole);
+            bool logingOff = false;
+            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff);
+            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff);
             Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer,labelUserSpecialAbilities);
             Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer,labelPCSpecialAbilities);
             IAnimal user = GetAnimal(txtUserName.Text, userUIStream);

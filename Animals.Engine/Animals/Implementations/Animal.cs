@@ -14,7 +14,6 @@ namespace Animals.Engine.Animals.Implementations
         public int Life { get; set; }
         public int Damage { get; set; }
         public int InitialLife { get; set; }
-        public bool LoggingOff { get; set; }
         public int Defense { get; set; }
         public int Fatigue { get; set; }
         public int PoisonDamage { get; set; } = 0;
@@ -39,12 +38,8 @@ namespace Animals.Engine.Animals.Implementations
 
         public virtual void Talk(string extraGreeting = "")
         {
-            if (!LoggingOff)
-            {
-                Console.Talk(extraGreeting == ""?greeting: Name + ": '" + extraGreeting + "'.");
-            }
+            Console.Talk(extraGreeting == ""?greeting: Name + ": '" + extraGreeting + "'.");            
         }
-
         public  void Attack(IAnimal opponent)
         {
             AttackInternal(opponent);

@@ -21,7 +21,7 @@ namespace Animals.Engine.Animals
         //Theme
         string Name { get; set; }
         bool IsFury { get; set; }
-        bool LoggingOff { get; set; }
+        
         IUIStream Console { get; set; }
         //  int Size 
 
