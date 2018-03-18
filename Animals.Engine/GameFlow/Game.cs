@@ -21,7 +21,9 @@ namespace Animals.Engine.GameFlow
             PC = pc;
             UIStream = uiStream;
         }
-
+        /// <summary>
+        /// Need to dehardcode zero indices to enable multicard
+        /// </summary>
         public void Duel()
         {
             int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
@@ -44,9 +46,6 @@ namespace Animals.Engine.GameFlow
                 if (userDied || pcDied)
                 {
                     UIStream.DeclareWinner(userDied, pcDied, PC.Deck[0].Name, User.Deck[0].Name);
-                    //catDeaths += catDied ? 1 : 0;
-                    //dogDeaths += dogDied ? 1 : 0;
-
                     break;
                 }
 
