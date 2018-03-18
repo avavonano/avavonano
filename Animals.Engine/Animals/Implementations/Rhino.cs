@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Animals.Engine.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace Animals.Engine.Animals.Implementations
 {
     public class Rhino : Animal
     {
-        protected Rhino(string name, bool isFury, int life, int damage, int defence, ref TextBox txtBox)
-            : base(name, isFury, life, damage, defence, AnimalType.Rhino,"to be filled", ref txtBox)
+        protected Rhino(string name, bool isFury, int life, int damage, int defence, IUIStream txtBox)
+            : base(name, isFury, life, damage, defence, AnimalType.Rhino,"to be filled",  txtBox)
         {
         }
 

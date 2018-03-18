@@ -96,11 +96,12 @@
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(161, 533);
+            this.txtUserName.Location = new System.Drawing.Point(162, 539);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(268, 30);
+            this.txtUserName.Size = new System.Drawing.Size(268, 23);
             this.txtUserName.TabIndex = 3;
             // 
             // label1
@@ -117,12 +118,16 @@
             // 
             // txtRound
             // 
+            this.txtRound.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtRound.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRound.ForeColor = System.Drawing.Color.Transparent;
             this.txtRound.Location = new System.Drawing.Point(1248, 4);
             this.txtRound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRound.Name = "txtRound";
-            this.txtRound.Size = new System.Drawing.Size(132, 30);
+            this.txtRound.Size = new System.Drawing.Size(132, 23);
             this.txtRound.TabIndex = 5;
+            this.txtRound.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -150,12 +155,14 @@
             // 
             // txtBoxWinner
             // 
+            this.txtBoxWinner.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtBoxWinner.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxWinner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtBoxWinner.Location = new System.Drawing.Point(820, 4);
             this.txtBoxWinner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxWinner.Name = "txtBoxWinner";
-            this.txtBoxWinner.Size = new System.Drawing.Size(132, 30);
+            this.txtBoxWinner.Size = new System.Drawing.Size(132, 23);
             this.txtBoxWinner.TabIndex = 8;
             // 
             // userLifeBar

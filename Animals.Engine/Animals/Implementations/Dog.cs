@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Animals.Engine.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -8,8 +9,8 @@ namespace Animals.Engine.Animals.Implementations
     public class Dog : Animal
     {
 
-        public Dog(string name, bool isFury, int life, int damage, int defence,ref TextBox txtBox)
-            : base(name, isFury, life, damage,defence,AnimalType.Dog,"plus half opponent's life damage",ref txtBox)
+        public Dog(string name, bool isFury, int life, int damage, int defence,IUIStream txtBox)
+            : base(name, isFury, life, damage,defence,AnimalType.Dog,"plus half opponent's life damage",txtBox)
         {
             greeting = "Woof";
         }

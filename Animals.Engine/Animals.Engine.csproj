@@ -50,6 +50,7 @@
     <Compile Include="Animals\Implementations\RandomBug.cs" />
     <Compile Include="Animals\Implementations\Rhino.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI.Interfaces\IUIStream.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

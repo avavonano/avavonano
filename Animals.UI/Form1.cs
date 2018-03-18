@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Animals.Engine;
 using Animals.Engine.Animals;
 using Animals.Engine.Animals.Implementations;
+using Animals.Engine.UI.Interfaces;
 
 namespace Animals.UI
 {
@@ -20,21 +21,21 @@ namespace Animals.UI
         {
             InitializeComponent();
         }
-        IAnimal GetAnimal(string name, ref TextBox txtBox)
+        IAnimal GetAnimal(string name,  IUIStream uiStream)
         {
             IAnimal animal;
             int rnd = Utilities.RandomNumberBetween(0, 3);
             if (rnd == 0)
             {
-                animal = new Cat(name, false, false, 200, 20, 10, ref txtBox);
+                animal = new Cat(name, false, false, 200, 20, 10,  uiStream);
             }
             else if (rnd == 1)
             {
-                animal = new Dog(name, true, 550, 50, 18, ref txtBox);
+                animal = new Dog(name, true, 550, 50, 18,  uiStream);
             }
             else
             {
-                animal = new RandomBug(name, true, 20, 3, 25, ref txtBox);
+                animal = new RandomBug(name, true, 20, 3, 25,  uiStream);
             }
             animal.LoggingOff = false;
             return animal;
@@ -70,10 +71,12 @@ namespace Animals.UI
         }
         private void cmdStartGame_Click(object sender, EventArgs e)
         {
+            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole);
+            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole);
             Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer,labelUserSpecialAbilities);
             Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer,labelPCSpecialAbilities);
-            IAnimal user = GetAnimal(txtUserName.Text,ref playerConsole);
-            IAnimal computer = GetAnimal("Computer",ref opponentConsole);
+            IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
+            IAnimal computer = GetAnimal("Computer", pcUIStream);
 
             UpdateLabels(user, userLabesl);
             UpdateLabels(computer, pcLabesl);

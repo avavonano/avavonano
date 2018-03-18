@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Animals.Engine.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -18,11 +19,12 @@ namespace Animals.Engine.Animals.Implementations
         public int Fatigue { get; set; }
         public int PoisonDamage { get; set; } = 0;
         public string SpecialAbilities { get; set; }
+        public IUIStream Console { get; set; }
         public AnimalType AnimalType { get; set; }
         protected string greeting;
-        protected TextBox Console;
+        
 
-        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, ref TextBox txtBox)
+        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, IUIStream uistream)
         {
             Name = name;
             IsFury = isFury;
@@ -30,7 +32,7 @@ namespace Animals.Engine.Animals.Implementations
             Damage = damage;
             InitialLife = life;
             Defense = defence;
-            Console = txtBox;
+            Console = uistream;
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
         }
@@ -39,16 +41,8 @@ namespace Animals.Engine.Animals.Implementations
         {
             if (!LoggingOff)
             {
-                if (extraGreeting == "")
-                {
-                    Console.AppendLine(greeting);
-                }
-                else
-                {
-                    Console.AppendLine(Name + ": '" + extraGreeting + "'.");
-                }
+                Console.Talk(extraGreeting == ""?greeting: Name + ": '" + extraGreeting + "'.");
             }
-
         }
 
         public  void Attack(IAnimal opponent)

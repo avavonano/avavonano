@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Animals.Engine.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -11,8 +12,8 @@ namespace Animals.Engine.Animals.Implementations
 
         private bool _likesFish;
         private int _catLife = 7;
-        public Cat(string name, bool isFury, bool likesFish, int life, int damage, int defence,ref TextBox txtBox)
-            : base(name, isFury, life, damage,defence,AnimalType.Cat,"7 lifes",ref txtBox)
+        public Cat(string name, bool isFury, bool likesFish, int life, int damage, int defence,IUIStream txtBox)
+            : base(name, isFury, life, damage,defence,AnimalType.Cat,"7 lifes",txtBox)
         {
             _likesFish = likesFish;
             greeting = "Meow";

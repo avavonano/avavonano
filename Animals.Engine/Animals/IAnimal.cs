@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Animals.Engine.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -21,7 +22,8 @@ namespace Animals.Engine.Animals
         string Name { get; set; }
         bool IsFury { get; set; }
         bool LoggingOff { get; set; }
-      //  int Size 
+        IUIStream Console { get; set; }
+        //  int Size 
 
         void Talk(string extraGreeting = "");
         void Attack(IAnimal opponent);
