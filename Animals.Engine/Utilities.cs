@@ -13,7 +13,7 @@ namespace Animals.Engine
         public static Random seedRandom;
         public static int RandomNumberBetween(int low, int max)
         {
-            // Thread.Sleep(1);
+            // Thread.Sleep(1);//
             if (seedRandom == null)
             {
                 seedRandom = new Random(DateTime.Now.Millisecond);
