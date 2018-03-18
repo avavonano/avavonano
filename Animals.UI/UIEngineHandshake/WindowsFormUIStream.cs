@@ -9,32 +9,32 @@ namespace Animals.UI
     public class WindowsFormUIStream : IUIStream
     {
         public bool LoggingOff { get; set; }
-        public TextBox HeroDialogueBox { get; set; }
-        public Labels Labels { get; set; }
+        private TextBox _heroDialogueBox { get; set; }
+        private Labels _labels { get; set; }
         private PictureBox _heroPictureBox;
         ProgressBar _lifeBar;
         public WindowsFormUIStream(TextBox heroDialogueBox,bool loggingOff, Labels labels, PictureBox heroPictureBox,ProgressBar lifeBar)
         {
-            HeroDialogueBox = heroDialogueBox;
+            _heroDialogueBox = heroDialogueBox;
             LoggingOff = loggingOff;
-            Labels = labels;
+            _labels = labels;
             _heroPictureBox = heroPictureBox;
             _lifeBar = lifeBar;
         }
         public void Talk(string phrase)
         {
             if(!LoggingOff)
-            HeroDialogueBox.AppendLine(phrase);
+            _heroDialogueBox.AppendLine(phrase);
         }
 
         public void UpdateStats(IAnimal animal)
         {
-            Labels.Life.ReplaceText(animal.InitialLife + "");
-            Labels.Attack.ReplaceText("Damage: " + animal.Damage + "");
-            Labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
-            Labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
+            _labels.Life.ReplaceText(animal.InitialLife + "");
+            _labels.Attack.ReplaceText("Damage: " + animal.Damage + "");
+            _labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
+            _labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
             _lifeBar.UpdateValue(animal.Life);
-            Labels.Update();
+            _labels.Update();
         }
 
         public void ShowHero(AnimalType animalType)
