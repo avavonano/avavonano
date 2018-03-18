@@ -37,53 +37,19 @@ namespace Animals.UI
             {
                 animal = new RandomBug(name, true, 20, 3, 25,  uiStream);
             }
-            animal.LoggingOff = false;
             return animal;
         }
-        void UpdateLabels(IAnimal inp, Labels labels)
-        {
-            labels.Life.ReplaceText(inp.InitialLife + "");
-            labels.Attack.ReplaceText("Damage: " + inp.Damage + "");
-            labels.Defence.ReplaceText("Defence: " + inp.Defense + "");
-            labels.SpecialAbility.ReplaceText(inp.SpecialAbilities);
-            labels.Update();
-        }
-        class Labels
-        {
-            public Label Life { get; set; }
-            public Label Defence { get; set; }
-            public Label Attack { get; set; }
-            public Label SpecialAbility { get; set; }
-            public Labels(Label life, Label defence, Label attack,Label specialAbility)
-            {
-                Life = life;
-                Defence = defence;
-                Attack = attack;
-                SpecialAbility = specialAbility;
-            }
-            public void Update()
-            {
-                Life.Update();
-                Defence.Update();
-                Attack.Update();
-                SpecialAbility.Update();
-            }
-        }
+                
         private void cmdStartGame_Click(object sender, EventArgs e)
         {
             bool logingOff = false;
-            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff);
-            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff);
-            Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer,labelUserSpecialAbilities);
-            Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer,labelPCSpecialAbilities);
+            Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer, labelUserSpecialAbilities);
+            Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer, labelPCSpecialAbilities);
+            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl);
+            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl);
+            
             IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
             IAnimal computer = GetAnimal("Computer", pcUIStream);
-
-            UpdateLabels(user, userLabesl);
-            UpdateLabels(computer, pcLabesl);
-
-           
-
             userLifeBar.Initiate(user.InitialLife);
             opponentLifeBar.Initiate(computer.InitialLife);
             UpdatePictureBox(pictureBoxPlayer, user.AnimalType);
@@ -109,9 +75,6 @@ namespace Animals.UI
                     userLifeBar.UpdateValue(user.Life);
                     opponentLifeBar.UpdateValue(computer.Life);
                 }
-                UpdateLabels(user, userLabesl);
-                UpdateLabels(computer, pcLabesl);
-
                 userDied = user.CheckDeath();
                 pcDied = computer.CheckDeath();
                 txtRound.ReplaceText(roundIdx+"");

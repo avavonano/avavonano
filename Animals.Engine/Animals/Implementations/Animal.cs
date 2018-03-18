@@ -34,6 +34,7 @@ namespace Animals.Engine.Animals.Implementations
             Console = uistream;
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
+            Console.UpdateStats(this);
         }
 
         public virtual void Talk(string extraGreeting = "")
@@ -44,6 +45,7 @@ namespace Animals.Engine.Animals.Implementations
         {
             AttackInternal(opponent);
             ApplyPoison();
+            Console.UpdateStats(this);
         }
         protected abstract void AttackInternal(IAnimal opponent);
         public virtual bool CheckDeath()
@@ -53,7 +55,12 @@ namespace Animals.Engine.Animals.Implementations
             if (res) { DeathWhisper(); }
             return res;
         }
-        public virtual void ReceiveAttack(IAnimal opponent, int receivingDamage)
+        public void  ReceiveAttack(IAnimal opponent, int receivingDamage)
+        {
+            ReceiveAttackInternal(opponent, receivingDamage);
+            Console.UpdateStats(this);       
+        }
+        protected virtual void ReceiveAttackInternal(IAnimal opponent, int receivingDamage)
         {
             int defence = Defend(opponent);
             receivingDamage = receivingDamage - defence < 0 ? 0  : receivingDamage - defence;

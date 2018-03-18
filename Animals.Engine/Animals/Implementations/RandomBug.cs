@@ -31,7 +31,7 @@ namespace Animals.Engine.Animals.Implementations
             
             return 0;
         }
-        public override void ReceiveAttack(IAnimal opponent, int receivingDamage)
+        protected override void ReceiveAttackInternal(IAnimal opponent, int receivingDamage)
         {
             int defence = Defend(opponent);
             receivingDamage = receivingDamage - defence < 0 ? 0 : receivingDamage - defence;
