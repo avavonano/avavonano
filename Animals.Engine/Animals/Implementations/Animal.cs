@@ -49,6 +49,7 @@ namespace Animals.Engine.Animals.Implementations
         }
         public  void Attack(IAnimal opponent)
         {
+            Talk();
             AttackInternal(opponent);
             ApplyPoison();
             Console.UpdateStats(this);

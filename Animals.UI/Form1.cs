@@ -51,13 +51,11 @@ namespace Animals.UI
             {
                 Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
                 if (roundIdx % 2 == 0)
-                {
-                    user.Talk();                    
+                {                  
                     user.Attack(computer);
                 }
                 else
                 {
-                    computer.Talk();
                     computer.Attack(user);
                 }
                 userDied = user.CheckDeath();
