@@ -16,7 +16,7 @@ namespace Animals.Engine.Animals
         int PoisonDamage { get; set; }
         AnimalType AnimalType { get; set; }
         // bool Stealth { get; set; }
-
+        string SpecialAbilities { get; set; }
         //Theme
         string Name { get; set; }
         bool IsFury { get; set; }

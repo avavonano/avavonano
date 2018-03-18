@@ -17,11 +17,12 @@ namespace Animals.Engine.Animals.Implementations
         public int Defense { get; set; }
         public int Fatigue { get; set; }
         public int PoisonDamage { get; set; } = 0;
+        public string SpecialAbilities { get; set; }
         public AnimalType AnimalType { get; set; }
         protected string greeting;
         protected TextBox Console;
 
-        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType,ref TextBox txtBox)
+        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, ref TextBox txtBox)
         {
             Name = name;
             IsFury = isFury;
@@ -31,6 +32,7 @@ namespace Animals.Engine.Animals.Implementations
             Defense = defence;
             Console = txtBox;
             AnimalType = animalType;
+            SpecialAbilities = specialAbilities;
         }
 
         public virtual void Talk(string extraGreeting = "")

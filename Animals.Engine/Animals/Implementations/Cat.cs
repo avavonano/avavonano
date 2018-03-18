@@ -12,7 +12,7 @@ namespace Animals.Engine.Animals.Implementations
         private bool _likesFish;
         private int _catLife = 7;
         public Cat(string name, bool isFury, bool likesFish, int life, int damage, int defence,ref TextBox txtBox)
-            : base(name, isFury, life, damage,defence,AnimalType.Cat,ref txtBox)
+            : base(name, isFury, life, damage,defence,AnimalType.Cat,"7 lifes",ref txtBox)
         {
             _likesFish = likesFish;
             greeting = "Meow";

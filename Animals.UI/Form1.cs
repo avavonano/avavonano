@@ -44,6 +44,7 @@ namespace Animals.UI
             labels.Life.ReplaceText(inp.InitialLife + "");
             labels.Attack.ReplaceText("Damage: " + inp.Damage + "");
             labels.Defence.ReplaceText("Defence: " + inp.Defense + "");
+            labels.SpecialAbility.ReplaceText(inp.SpecialAbilities);
             labels.Update();
         }
         class Labels
@@ -51,23 +52,26 @@ namespace Animals.UI
             public Label Life { get; set; }
             public Label Defence { get; set; }
             public Label Attack { get; set; }
-            public Labels(Label life, Label defence, Label attack)
+            public Label SpecialAbility { get; set; }
+            public Labels(Label life, Label defence, Label attack,Label specialAbility)
             {
                 Life = life;
                 Defence = defence;
                 Attack = attack;
+                SpecialAbility = specialAbility;
             }
             public void Update()
             {
                 Life.Update();
                 Defence.Update();
                 Attack.Update();
+                SpecialAbility.Update();
             }
         }
         private void cmdStartGame_Click(object sender, EventArgs e)
         {
-            Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer);
-            Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer);
+            Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer,labelUserSpecialAbilities);
+            Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer,labelPCSpecialAbilities);
             IAnimal user = GetAnimal(txtUserName.Text,ref playerConsole);
             IAnimal computer = GetAnimal("Computer",ref opponentConsole);
 
