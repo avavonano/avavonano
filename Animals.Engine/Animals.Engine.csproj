@@ -49,6 +49,9 @@
     <Compile Include="Animals\Implementations\Dog.cs" />
     <Compile Include="Animals\Implementations\RandomBug.cs" />
     <Compile Include="Animals\Implementations\Rhino.cs" />
+    <Compile Include="GameFlow\Game.cs" />
+    <Compile Include="GameFlow\HeroDraws.cs" />
+    <Compile Include="GameFlow\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI.Interfaces\IUIStream.cs" />
     <Compile Include="Utilities.cs" />

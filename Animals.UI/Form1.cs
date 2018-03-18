@@ -5,6 +5,7 @@ using Animals.Engine;
 using Animals.Engine.Animals;
 using Animals.Engine.Animals.Implementations;
 using Animals.Engine.UI.Interfaces;
+using Animals.Engine.GameFlow;
 
 namespace Animals.UI
 {
@@ -14,24 +15,7 @@ namespace Animals.UI
         {
             InitializeComponent();
         }
-        IAnimal GetAnimal(string name,  IUIStream uiStream)
-        {
-            IAnimal animal;
-            int rnd = Utilities.RandomNumberBetween(0, 3);
-            if (rnd == 0)
-            {
-                animal = new Cat(name, false, false, 200, 20, 10,  uiStream);
-            }
-            else if (rnd == 1)
-            {
-                animal = new Dog(name, true, 550, 50, 18,  uiStream);
-            }
-            else
-            {
-                animal = new RandomBug(name, true, 20, 3, 25,  uiStream);
-            }
-            return animal;
-        }
+        
                 
         private void cmdStartGame_Click(object sender, EventArgs e)
         {
@@ -41,8 +25,13 @@ namespace Animals.UI
             IUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
             IUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
             
-            IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
-            IAnimal computer = GetAnimal("Computer", pcUIStream);
+            //IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
+           // IAnimal computer = GetAnimal("Computer", pcUIStream);
+
+            Player usr = new Player(txtUserName.Text, userUIStream, 1);
+            Player pc = new Player("Computer", pcUIStream, 1);
+            Game newGame = new Game(usr, pc, 1);
+
 
             int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
             bool userDied = false;
@@ -52,14 +41,14 @@ namespace Animals.UI
                 Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
                 if (roundIdx % 2 == 0)
                 {                  
-                    user.Attack(computer);
+                    newGame.User.Deck[0].Attack(newGame.PC.Deck[0]);
                 }
                 else
                 {
-                    computer.Attack(user);
+                    newGame.PC.Deck[0].Attack(newGame.User.Deck[0]);
                 }
-                userDied = user.CheckDeath();
-                pcDied = computer.CheckDeath();
+                userDied = newGame.User.Deck[0].CheckDeath();
+                pcDied = newGame.PC.Deck[0].CheckDeath();
                 txtRound.ReplaceText(roundIdx+"");
                 if (userDied || pcDied)
                 {
@@ -69,11 +58,11 @@ namespace Animals.UI
                     }
                     else if(userDied)
                     {
-                        txtBoxWinner.ReplaceText(computer.Name);
+                        txtBoxWinner.ReplaceText(newGame.PC.Deck[0].Name);
                     }
                     else
                     {
-                        txtBoxWinner.ReplaceText(user.Name);
+                        txtBoxWinner.ReplaceText(newGame.User.Deck[0].Name);
                     }
                     //catDeaths += catDied ? 1 : 0;
                     //dogDeaths += dogDied ? 1 : 0;
