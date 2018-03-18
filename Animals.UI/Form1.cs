@@ -45,15 +45,12 @@ namespace Animals.UI
             bool logingOff = false;
             Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer, labelUserSpecialAbilities);
             Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer, labelPCSpecialAbilities);
-            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl);
-            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl);
+            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
+            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
             
             IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
             IAnimal computer = GetAnimal("Computer", pcUIStream);
-            userLifeBar.Initiate(user.InitialLife);
-            opponentLifeBar.Initiate(computer.InitialLife);
-            UpdatePictureBox(pictureBoxPlayer, user.AnimalType);
-            UpdatePictureBox(pictureBoxOpponent, computer.AnimalType);
+
             int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
             bool userDied = false;
             bool pcDied = false;
@@ -100,22 +97,5 @@ namespace Animals.UI
 
             }
         }
-        
-        void UpdatePictureBox(PictureBox inp, AnimalType animalType)
-        {
-            if (animalType == AnimalType.Dog)
-            {
-                inp.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
-            }
-            else if (animalType == AnimalType.Cat)
-            {
-                inp.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
-            }
-            else
-            {
-                inp.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
-            }
-        }
-
     }
 }

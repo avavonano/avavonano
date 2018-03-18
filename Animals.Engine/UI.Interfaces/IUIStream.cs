@@ -12,5 +12,7 @@ namespace Animals.Engine.UI.Interfaces
         bool LoggingOff { get; set; }
         void Talk(string phrase);
         void UpdateStats(IAnimal animal);
+        void ShowHero(AnimalType animalType);
+        void Reset(IAnimal animal);
     }
 }

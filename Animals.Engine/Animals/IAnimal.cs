@@ -31,5 +31,6 @@ namespace Animals.Engine.Animals
         int Defend(IAnimal opponent);
         bool CheckDeath();
         void DeathWhisper();
+        void ShowHero();
     }
 }

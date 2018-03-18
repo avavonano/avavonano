@@ -35,11 +35,17 @@ namespace Animals.Engine.Animals.Implementations
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
             Console.UpdateStats(this);
+            Console.Reset(this);
+            ShowHero();
         }
 
         public virtual void Talk(string extraGreeting = "")
         {
             Console.Talk(extraGreeting == ""?greeting: Name + ": '" + extraGreeting + "'.");            
+        }
+        public void ShowHero()
+        {
+            Console.ShowHero(AnimalType);
         }
         public  void Attack(IAnimal opponent)
         {

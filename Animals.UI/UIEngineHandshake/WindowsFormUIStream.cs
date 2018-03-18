@@ -11,11 +11,15 @@ namespace Animals.UI
         public bool LoggingOff { get; set; }
         public TextBox HeroDialogueBox { get; set; }
         public Labels Labels { get; set; }
-        public WindowsFormUIStream(TextBox heroDialogueBox,bool loggingOff, Labels labels)
+        private PictureBox _heroPictureBox;
+        ProgressBar _lifeBar;
+        public WindowsFormUIStream(TextBox heroDialogueBox,bool loggingOff, Labels labels, PictureBox heroPictureBox,ProgressBar lifeBar)
         {
             HeroDialogueBox = heroDialogueBox;
             LoggingOff = loggingOff;
             Labels = labels;
+            _heroPictureBox = heroPictureBox;
+            _lifeBar = lifeBar;
         }
         public void Talk(string phrase)
         {
@@ -30,6 +34,27 @@ namespace Animals.UI
             Labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
             Labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
             Labels.Update();
+        }
+
+        public void ShowHero(AnimalType animalType)
+        {
+            if (animalType == AnimalType.Dog)
+            {
+                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
+            }
+            else if (animalType == AnimalType.Cat)
+            {
+                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
+            }
+            else
+            {
+                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
+            }
+        }
+
+        public void Reset(IAnimal animal)
+        {
+            _lifeBar.Initiate(animal.InitialLife);
         }
     }
     public class Labels
