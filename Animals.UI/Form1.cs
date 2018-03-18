@@ -45,8 +45,8 @@ namespace Animals.UI
             bool logingOff = false;
             Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer, labelUserSpecialAbilities);
             Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer, labelPCSpecialAbilities);
-            WindowsFormUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
-            WindowsFormUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
+            IUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
+            IUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
             
             IAnimal user = GetAnimal(txtUserName.Text, userUIStream);
             IAnimal computer = GetAnimal("Computer", pcUIStream);
@@ -59,18 +59,13 @@ namespace Animals.UI
                 Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
                 if (roundIdx % 2 == 0)
                 {
-                    user.Talk();
-                    
+                    user.Talk();                    
                     user.Attack(computer);
-                    userLifeBar.UpdateValue(user.Life);
-                    opponentLifeBar.UpdateValue(computer.Life);
                 }
                 else
                 {
                     computer.Talk();
                     computer.Attack(user);
-                    userLifeBar.UpdateValue(user.Life);
-                    opponentLifeBar.UpdateValue(computer.Life);
                 }
                 userDied = user.CheckDeath();
                 pcDied = computer.CheckDeath();

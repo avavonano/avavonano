@@ -33,6 +33,7 @@ namespace Animals.UI
             Labels.Attack.ReplaceText("Damage: " + animal.Damage + "");
             Labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
             Labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
+            _lifeBar.UpdateValue(animal.Life);
             Labels.Update();
         }
 
