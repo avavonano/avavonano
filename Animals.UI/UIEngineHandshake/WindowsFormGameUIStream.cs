@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Animals.Engine.Animals;
+using Animals.Engine.GameFlow;
 
 namespace Animals.UI.UIEngineHandshake
 {
@@ -33,6 +35,18 @@ namespace Animals.UI.UIEngineHandshake
             {
                 _winnerBox.ReplaceText(opponentName);
             }
+        }
+
+        public IAnimal PromptPlayerToPickCard(Player player)
+        {
+            IAnimal animal = null;
+            using (PickHeroForm pickCardForm = new PickHeroForm(this,player))
+            {
+                pickCardForm.ShowDialog();
+                animal = player.Deck[pickCardForm.HeroIndex];
+                player.Deck.RemoveAt(pickCardForm.HeroIndex);
+            }            
+            return animal;
         }
 
         public void UpdateRound(int round)

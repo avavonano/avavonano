@@ -24,8 +24,8 @@ namespace Animals.UI
             IUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
             IUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
             IGameUIStream gameUIStream = new WindowsFormGameUIStream(txtRound, txtBoxWinner);
-            Player usr = new Player(txtUserName.Text, userUIStream, 1);
-            Player pc = new Player("Computer", pcUIStream, 1);
+            Player usr = new Player(txtUserName.Text, userUIStream, 5);
+            Player pc = new Player("Computer", pcUIStream, 5);
             Game newGame = new Game(usr, pc, 1,gameUIStream);
             newGame.Duel();
         }

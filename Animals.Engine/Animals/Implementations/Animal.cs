@@ -36,7 +36,7 @@ namespace Animals.Engine.Animals.Implementations
             SpecialAbilities = specialAbilities;
             Console.Reset(this);
             Console.UpdateStats(this);            
-            ShowHero();
+           // ShowHero();
         }
 
         public virtual void Talk(string extraGreeting = "")

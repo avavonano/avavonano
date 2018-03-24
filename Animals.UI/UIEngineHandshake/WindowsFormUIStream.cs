@@ -39,23 +39,17 @@ namespace Animals.UI
 
         public void ShowHero(AnimalType animalType)
         {
-            if (animalType == AnimalType.Dog)
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
-            }
-            else if (animalType == AnimalType.Cat)
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
-            }
-            else
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
-            }
+            HeroMultimedia.ShowHero(animalType, _heroPictureBox);
         }
 
         public void Reset(IAnimal animal)
         {
             _lifeBar.Initiate(animal.InitialLife);
+        }
+
+        public IAnimal PickAnimal()
+        {
+            throw new NotImplementedException();
         }
     }
     public class Labels

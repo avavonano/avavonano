@@ -1,10 +1,6 @@
-﻿using Animals.Engine.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Animals.Engine.Animals;
+using Animals.Engine.UI.Interfaces;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Animals.Engine.GameFlow
 {
@@ -21,35 +17,69 @@ namespace Animals.Engine.GameFlow
             PC = pc;
             UIStream = uiStream;
         }
+        private IAnimal GetPCAnimal(Player player, Player alreadyPickedOpponentAnimal)
+        {
+            IAnimal pickedAnimal = null;
+            int pickedAnimalIndex = 0;
+            if (alreadyPickedOpponentAnimal==null)//plays first
+            {
+                pickedAnimalIndex = 0;
+            }
+            else
+            {
+                pickedAnimalIndex = 0;
+            }
+            pickedAnimal = player.Deck[pickedAnimalIndex];
+            player.Deck.RemoveAt(pickedAnimalIndex);
+            return pickedAnimal;
+        }
         /// <summary>
-        /// Need to dehardcode zero indices to enable multicard
+        /// Need to dehardcode zero indices to enable multicard.
         /// </summary>
         public void Duel()
-        {
-            int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
-            bool userDied = false;
-            bool pcDied = false;
-            for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
+        {            
+            while(User.Deck.Count>0 && PC.Deck.Count>0)
             {
-                Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
-                if (roundIdx % 2 == 0)
+                int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
+                bool userDied = false;
+                bool pcDied = false;
+                IAnimal userAnimal = UIStream.PromptPlayerToPickCard(User);
+                IAnimal pcAnimal = GetPCAnimal(PC,User);
+                userAnimal.ShowHero();
+                pcAnimal.ShowHero();
+                for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    User.Deck[0].Attack(PC.Deck[0]);
+                    Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
+                    if (roundIdx % 2 == 0)
+                    {
+                        userAnimal.Attack(pcAnimal);
+                    }
+                    else
+                    {
+                        pcAnimal.Attack(userAnimal);
+                    }
+                    userDied = userAnimal.CheckDeath();
+                    pcDied = pcAnimal.CheckDeath();
+                    UIStream.UpdateRound(roundIdx);
+                    if (userDied || pcDied)
+                    {
+                        UIStream.DeclareWinner(userDied, pcDied, pcAnimal.Name, userAnimal.Name);
+                        if(userDied && pcDied)
+                        {
+                            firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
+                        }
+                        else if(userDied)
+                        {
+                            firstPlayerFlag = 1;
+                        }
+                        else
+                        {
+                            firstPlayerFlag = 0;
+                        }
+                        break;
+                    }
                 }
-                else
-                {
-                    PC.Deck[0].Attack(User.Deck[0]);
-                }
-                userDied = User.Deck[0].CheckDeath();
-                pcDied = PC.Deck[0].CheckDeath();
-                UIStream.UpdateRound(roundIdx);
-                if (userDied || pcDied)
-                {
-                    UIStream.DeclareWinner(userDied, pcDied, PC.Deck[0].Name, User.Deck[0].Name);
-                    break;
-                }
-
-            }
+            }            
         }
     }
 }
