@@ -34,8 +34,7 @@ namespace Animals.Engine.Animals.Implementations
             Console = uistream;
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
-            Console.Reset(this);
-            Console.UpdateStats(this);            
+                       
            // ShowHero();
         }
 
@@ -45,6 +44,8 @@ namespace Animals.Engine.Animals.Implementations
         }
         public void ShowHero()
         {
+            Console.Reset(this);
+            Console.UpdateStats(this);
             Console.ShowHero(AnimalType);
         }
         public  void Attack(IAnimal opponent)
