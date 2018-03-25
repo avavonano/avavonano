@@ -40,14 +40,13 @@ namespace Animals.UI.UIEngineHandshake
             winnerForm.ShowDialog();
         }
 
-        public IAnimal PromptPlayerToPickCard(Player player)
+        public int PromptPlayerToPickCard(Player player)
         {
-            IAnimal animal = null;
+            int animal = -1;
             using (PickHeroForm pickCardForm = new PickHeroForm(this,player))
             {
                 pickCardForm.ShowDialog();
-                animal = player.Deck[pickCardForm.HeroIndex];
-                player.Deck.RemoveAt(pickCardForm.HeroIndex);
+                animal = pickCardForm.HeroIndex;
             }            
             return animal;
         }
