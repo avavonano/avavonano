@@ -26,7 +26,7 @@ namespace Animals.Engine.GameFlow
             }
             else if (rnd == 3)
             {
-                animal = new Rat(name, true, 20, 3, 25, uiStream);
+                animal = new Rat(name, true, 120, 25, 10, uiStream);
             }
             else
             {

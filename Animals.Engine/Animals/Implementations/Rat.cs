@@ -27,7 +27,7 @@ namespace Animals.Engine.Animals.Implementations
         protected override void AttackInternal(IAnimal opponent)
         {
             opponent.ReceiveAttack(this, Damage);
-            opponent.PoisonDamage += Utilities.Math.RandomNumberBetween(1, 8);
+            opponent.PoisonDamage += Utilities.Math.RandomNumberBetween(4, 8);
             ImmuneToPoison();
         }
     }
