@@ -23,19 +23,22 @@ namespace Animals.UI
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
             }
         }
-        public static void ShowWinner(Winner winner, PictureBox winnerPictureBox)
+        public static void ShowWinner(Winner winner, PictureBox winnerPictureBox,TextBox msg)
         {
             if (winner == Winner.User)
             {
                 winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.winner);
+                msg.Text = "Congratulations! You are victorious.";
             }
             else if (winner == Winner.Computer)
             {
                 winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.loser);
+                msg.Text = "You had a defeat with no honor. You just suck!";
             }
             else
             {
                 winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.tie);
+                msg.Text = "No winners here. Only losers. Lol";
             }
         }
     }
