@@ -15,11 +15,12 @@ namespace Animals.UI.UIEngineHandshake
 {
     public class WindowsFormGameUIStream : IGameUIStream
     {
+        private GameForm _gameForm;
         private TextBox _roundBox;
         private TextBox _winnerBox;
         private TextBox _userScoreTxtBox;
         private TextBox _pcScoreTxtBox;
-        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox, TextBox userScoreTxtBox, TextBox pcScoreTxtBox)
+        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox, TextBox userScoreTxtBox, TextBox pcScoreTxtBox, GameForm gameForm)
         {
             _roundBox = roundBox;
             _winnerBox = winnerBox;
@@ -27,6 +28,7 @@ namespace Animals.UI.UIEngineHandshake
             _pcScoreTxtBox = pcScoreTxtBox;
             _userScoreTxtBox.Text = "0";
             _pcScoreTxtBox.Text = "0";
+            _gameForm=gameForm;
         }
 
         public void DeclareWinner(Score score, string usrName, string opponentName)
@@ -66,5 +68,11 @@ namespace Animals.UI.UIEngineHandshake
                 _userScoreTxtBox.Text = score.UserScore.ToString();
             }
         }
+
+        public void FocusAfterPrompt()
+        {
+            _gameForm.Show();
+        }
+
     }
 }

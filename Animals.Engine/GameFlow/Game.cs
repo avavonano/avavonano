@@ -48,6 +48,7 @@ namespace Animals.Engine.GameFlow
                 bool userDied = false;
                 bool pcDied = false;
                 IAnimal userAnimal = UIStream.PromptPlayerToPickCard(User);
+                UIStream.FocusAfterPrompt();
                 IAnimal pcAnimal = GetPCAnimal(PC,User);
                 userAnimal.ShowHero();
                 pcAnimal.ShowHero();
