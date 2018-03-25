@@ -1,4 +1,6 @@
-﻿namespace Animals.UI
+﻿using System;
+
+namespace Animals.UI
 {
     partial class GameForm
     {
@@ -105,6 +107,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(268, 23);
             this.txtUserName.TabIndex = 3;
+            this.txtUserName.Text = Environment.UserName;
             // 
             // label1
             // 
