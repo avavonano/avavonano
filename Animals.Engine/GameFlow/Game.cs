@@ -32,22 +32,16 @@ namespace Animals.Engine.GameFlow
                 int firstPlayerFlag = Math.RandomNumberBetween(0, 2);
                 bool userDied = false;
                 bool pcDied = false;
-                int usrAdvantageIdx = Math.RandomNumberBetween(0, 3);
-                int pcAdvantageIdx = Math.RandomNumberBetween(0, 3);
-                if(usrAdvantageIdx==2)
-                {
-                    User.DrawAdvantage();
-                }
-                if (pcAdvantageIdx == 1)
-                {
-                    PC.DrawAdvantage();
-                }
-                ExcerciseAdvantages();
-                IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);
                 
+                User.DrawAdvantage();
+                PC.DrawAdvantage();
+                ExcerciseAdvantages();
+
+                IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);                
                 IAnimal pcAnimal =GameUtilities.GetPCAnimal(PC,User);
                 userAnimal.ShowHero();
                 pcAnimal.ShowHero();
+
                 for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
                     Thread.Sleep(Math.RandomNumberBetween(500, 1500));

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Utilities;
 
+
 namespace Animals.Engine.GameFlow
 {
     public class Player
@@ -46,11 +47,15 @@ namespace Animals.Engine.GameFlow
         }
         public void DrawAdvantage()
         {
-            if(Advantages.IsNull())
+            int advantageIdx = Utilities.Math.RandomNumberBetween(0, 3);
+            if (advantageIdx == 1)
             {
-                Advantages = new List<Advantage>();
+                if (Advantages.IsNull())
+                {
+                    Advantages = new List<Advantage>();
+                }
+                Advantages.Add(Draws.GetAdvantage());
             }
-            Advantages.Add(Draws.GetAdvantage());
         }
     }
 }
