@@ -37,12 +37,39 @@ namespace Animals.Engine
             user.Deck.RemoveAt(cardIdx);
             return animal;
         }
-        public static Advantage PromptPlayerToAdvantage(Player user, IGameUIStream uiStream)
+        public static IAnimal GetPCAnimal(Player player, Player alreadyPickedOpponentAnimal)
+        {
+            IAnimal pickedAnimal = null;
+            int pickedAnimalIndex = 0;
+            //todo add logic for the pc to pick next card
+            if (alreadyPickedOpponentAnimal == null)//plays first
+            {
+                pickedAnimalIndex = 0;
+            }
+            else
+            {
+                pickedAnimalIndex = 0;
+            }
+            pickedAnimal = player.Deck[pickedAnimalIndex];
+            player.Deck.RemoveAt(pickedAnimalIndex);
+            return pickedAnimal;
+        }
+        public static Advantage PromptPlayerToPickAdvantage(Player user, IGameUIStream uiStream)
         {
             Advantage advantage = null;
             int cardIdx = uiStream.PromptPlayerToPickAdvantage(user);
-            advantage = user.Advantages[cardIdx];
-            user.Advantages.RemoveAt(cardIdx);
+            if(cardIdx>=0)
+            {
+                advantage = user.Advantages[cardIdx];
+                user.Advantages.RemoveAt(cardIdx);
+            }            
+            return advantage;
+        }
+        public static Advantage GetPCAdvantage(Player user, IGameUIStream uiStream)
+        {
+            int idx = 0;//todo: make smart
+            Advantage advantage = user.Advantages[idx];
+            user.Advantages.RemoveAt(idx);
             return advantage;
         }
     }

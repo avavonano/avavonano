@@ -18,23 +18,7 @@ namespace Animals.Engine.GameFlow
             PC = pc;
             UIStream = uiStream;
         }
-        private IAnimal GetPCAnimal(Player player, Player alreadyPickedOpponentAnimal)
-        {
-            IAnimal pickedAnimal = null;
-            int pickedAnimalIndex = 0;
-            //todo add logic for the pc to pick next card
-            if (alreadyPickedOpponentAnimal==null)//plays first
-            {
-                pickedAnimalIndex = 0;
-            }
-            else
-            {
-                pickedAnimalIndex = 0;
-            }
-            pickedAnimal = player.Deck[pickedAnimalIndex];
-            player.Deck.RemoveAt(pickedAnimalIndex);
-            return pickedAnimal;
-        }
+        
         
         /// <summary>
         /// Need to dehardcode zero indices to enable multicard.
@@ -61,7 +45,7 @@ namespace Animals.Engine.GameFlow
                 ExcerciseAdvantages();
                 IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);
                 
-                IAnimal pcAnimal = GetPCAnimal(PC,User);
+                IAnimal pcAnimal =GameUtilities.GetPCAnimal(PC,User);
                 userAnimal.ShowHero();
                 pcAnimal.ShowHero();
                 for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
@@ -106,13 +90,12 @@ namespace Animals.Engine.GameFlow
             if ((!User.Advantages.IsNull()) && User.Advantages.Count > 0)
             {
                 UIStream.ShowUserDeck(User, "Check out your deck before excercising an advantage. Exit to continue.");
-                var advantage =GameUtilities.PromptPlayerToAdvantage(User, UIStream);
+                var advantage =GameUtilities.PromptPlayerToPickAdvantage(User, UIStream);
                 advantage?.ApplyAdvantage(User, this);
             }
             if ((!PC.Advantages.IsNull()) && PC.Advantages.Count > 0)//todo add logic on how pc excercies advantage
             {
-                var advantage = PC.Advantages[0];
-                PC.Advantages.RemoveAt(0);
+                var advantage = GameUtilities.GetPCAdvantage(PC, UIStream);
                 advantage?.ApplyAdvantage(PC, this);
             }
         }
