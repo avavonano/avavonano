@@ -129,6 +129,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Winner\loser.jpg" />
+    <Content Include="Images\Winner\tie.jpg" />
+    <Content Include="Images\Winner\winner.jpg" />
     <None Include="Images\Heroes\MosquitoImage.jpg" />
     <None Include="Images\Heroes\catPicture.jpg" />
     <Content Include="Images\Heroes\DogImage.jpg" />

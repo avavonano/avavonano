@@ -27,15 +27,15 @@ namespace Animals.UI
         {
             if (winner == Winner.User)
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.winner);
             }
             else if (winner == Winner.Computer)
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.loser);
             }
             else
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.tie);
             }
         }
     }

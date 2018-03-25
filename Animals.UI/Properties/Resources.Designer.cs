@@ -83,9 +83,39 @@ namespace Animals.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loser {
+            get {
+                object obj = ResourceManager.GetObject("loser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MosquitoImage {
             get {
                 object obj = ResourceManager.GetObject("MosquitoImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tie {
+            get {
+                object obj = ResourceManager.GetObject("tie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap winner {
+            get {
+                object obj = ResourceManager.GetObject("winner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
