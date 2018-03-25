@@ -18,6 +18,10 @@ namespace Animals.UI
             {
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
             }
+            else if (animalType == AnimalType.Rhino)
+            {
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.rhinoPicture);
+            }
             else
             {
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
