@@ -16,7 +16,19 @@ namespace Animals.Engine.GameFlow
         public List<IAnimal> Deck { get; set; }
         public Player(string usrName,IUIStream uiStream,  int initialCardsNumber)
         {
-            UserName = usrName;
+
+
+            if (string.IsNullOrEmpty(usrName))
+            {
+                UserName = "random player";
+            }
+            else
+            {
+                UserName = usrName;
+            }
+
+
+            
             InitialCardsNumber = initialCardsNumber;
             UIStream = uiStream;
             Deck = new List<IAnimal>();
