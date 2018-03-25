@@ -82,8 +82,11 @@ namespace Animals.UI.UIEngineHandshake
             using (PickAdvantageForm pickAdvantageForm = new PickAdvantageForm(player))
             {
                 pickAdvantageForm.ShowDialog();
-                advantage = player.Advantages[pickAdvantageForm.AdvantageIndex];
-                player.Advantages.RemoveAt(pickAdvantageForm.AdvantageIndex);
+                if(pickAdvantageForm.AdvantageIndex>=0)
+                {
+                    advantage = player.Advantages[pickAdvantageForm.AdvantageIndex];
+                    player.Advantages.RemoveAt(pickAdvantageForm.AdvantageIndex);
+                }                
             }
             return advantage;
         }

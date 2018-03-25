@@ -98,12 +98,12 @@ namespace Animals.Engine.GameFlow
             if ((!User.Advantages.IsNull()) && User.Advantages.Count > 0)
             {
                 var advantage = UIStream.PromptPlayerToPickAdvantage(User);
-                advantage.ApplyAdvantage(User, this);
+                advantage?.ApplyAdvantage(User, this);
             }
             if ((!PC.Advantages.IsNull()) && PC.Advantages.Count > 0)//todo add logic on how pc excercies advantage
             {
                 var advantage = PC.Advantages[0];
-                advantage.ApplyAdvantage(User, this);
+                advantage?.ApplyAdvantage(PC, this);
             }
         }
     }

@@ -14,7 +14,7 @@ namespace Animals.UI.Forms
     public partial class PickAdvantageForm : Form
     {
         Player _player;
-        public int AdvantageIndex { get; private set; }
+        public int AdvantageIndex { get; private set; } = -1;
         public PickAdvantageForm(Player player)
         {
             InitializeComponent();
@@ -30,9 +30,13 @@ namespace Animals.UI.Forms
             var selectedItems = advantagesListBox.SelectedIndices;
             if (selectedItems.Count ==0)
             {
-                using (WarningForm warning = new WarningForm("No advantage has been selected. Please try again."))
+                using (YesOrNoForm warning = new YesOrNoForm("No advantage have been selected to been used in this round. Are you sure?"))
                 {
                     warning.ShowDialog();
+                    if(warning.IsYes)
+                    {
+                        Hide();
+                    }                    
                 }
             }
             else if (selectedItems.Count>1)
