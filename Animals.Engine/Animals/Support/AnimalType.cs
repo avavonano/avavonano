@@ -11,6 +11,7 @@ namespace Animals.Engine.Animals
         Dog,
         Cat,
         RandomBug,
-        Rhino
+        Rhino,
+        Rat
     }
 }

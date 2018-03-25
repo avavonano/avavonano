@@ -11,7 +11,7 @@ namespace Animals.Engine.GameFlow
         public static IAnimal GetAnimal(string name, IUIStream uiStream)
         {
             IAnimal animal;
-            int rnd = Utilities.Math.RandomNumberBetween(0, 4);
+            int rnd = Utilities.Math.RandomNumberBetween(0, 5);
             if (rnd == 0)
             {
                 animal = new Cat(name, false, false, 200, 20, 10, uiStream);
@@ -23,6 +23,10 @@ namespace Animals.Engine.GameFlow
             else if (rnd == 2)
             {
                 animal = new Rhino(name, true, 800, 20, 50, uiStream);
+            }
+            else if (rnd == 3)
+            {
+                animal = new Rat(name, true, 20, 3, 25, uiStream);
             }
             else
             {

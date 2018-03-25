@@ -22,6 +22,10 @@ namespace Animals.UI
             {
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.rhinoPicture);
             }
+            else if (animalType == AnimalType.Rat)
+            {
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.justRatPicture);
+            }
             else
             {
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);

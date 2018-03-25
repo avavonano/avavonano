@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Heroes\rhinoPicture.jpg" />
+    <None Include="Images\Heroes\justRatPicture.jpg" />
     <Content Include="Images\Winner\loser.jpg" />
     <Content Include="Images\Winner\tie.jpg" />
     <Content Include="Images\Winner\winner.jpg" />
