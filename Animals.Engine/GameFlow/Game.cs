@@ -47,8 +47,16 @@ namespace Animals.Engine.GameFlow
                 int firstPlayerFlag = Math.RandomNumberBetween(0, 2);
                 bool userDied = false;
                 bool pcDied = false;
-                User.DrawAdvantage();
-                PC.DrawAdvantage();
+                int usrAdvantageIdx = Math.RandomNumberBetween(0, 3);
+                int pcAdvantageIdx = Math.RandomNumberBetween(0, 3);
+                if(usrAdvantageIdx==2)
+                {
+                    User.DrawAdvantage();
+                }
+                if (pcAdvantageIdx == 1)
+                {
+                    PC.DrawAdvantage();
+                }                
                 UIStream.ShowUserDeck(User);
                 ExcerciseAdvantages();
                 IAnimal userAnimal = UIStream.PromptPlayerToPickCard(User);
