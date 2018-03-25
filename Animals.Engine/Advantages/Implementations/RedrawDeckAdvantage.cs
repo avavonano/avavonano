@@ -16,8 +16,7 @@ namespace Animals.Engine.Advantages.Implementations
 
         protected override void ApplyAdvantageInternal(Player player, Game game)
         {
-            player.ResetDeck(game.CurrentCardsNumber);
-            
+            player.ResetDeck(game.CurrentCardsNumber);            
         }
     }
 }
