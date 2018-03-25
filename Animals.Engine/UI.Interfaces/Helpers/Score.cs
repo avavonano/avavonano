@@ -12,7 +12,7 @@ namespace Animals.Engine.UI.Interfaces
         public int PcScore { get; set; }
         public void UpdateScore(int userScore, int pcScore)
         {
-            UserScore += UserScore;
+            UserScore += userScore;
             PcScore += pcScore;
         }
     }
