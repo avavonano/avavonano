@@ -1,6 +1,6 @@
 ﻿namespace Animals.UI
 {
-    partial class txtWinner
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtWinner));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.cmdStartGame = new System.Windows.Forms.Button();
             this.playerConsole = new System.Windows.Forms.TextBox();
             this.opponentConsole = new System.Windows.Forms.TextBox();

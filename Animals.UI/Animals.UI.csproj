@@ -45,33 +45,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeroMultimedia.cs" />
-    <Compile Include="PickHeroForm.cs">
+    <Compile Include="Images\HeroMultimedia.cs" />
+    <Compile Include="Forms\PickHeroForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PickHeroForm.Designer.cs">
+    <Compile Include="Forms\PickHeroForm.Designer.cs">
       <DependentUpon>PickHeroForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIEngineHandshake\WindowsFormGameUIStream.cs" />
     <Compile Include="UIEngineHandshake\WindowsFormUIStream.cs" />
-    <Compile Include="WinnerForm.cs">
+    <Compile Include="Forms\WinnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinnerForm.Designer.cs">
+    <Compile Include="Forms\WinnerForm.Designer.cs">
       <DependentUpon>WinnerForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PickHeroForm.resx">
+    <EmbeddedResource Include="Forms\PickHeroForm.resx">
       <DependentUpon>PickHeroForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,7 +84,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WinnerForm.resx">
+    <EmbeddedResource Include="Forms\WinnerForm.resx">
       <DependentUpon>WinnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -111,5 +111,6 @@
     <None Include="Images\Heroes\catPicture.jpg" />
     <Content Include="Images\Heroes\DogImage.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

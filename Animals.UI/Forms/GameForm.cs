@@ -6,9 +6,9 @@ using Animals.UI.UIEngineHandshake;
 
 namespace Animals.UI
 {
-    public partial class txtWinner : Form
+    public partial class GameForm : Form
     {
-        public txtWinner()
+        public GameForm()
         {
             InitializeComponent();
         }       

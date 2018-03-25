@@ -16,7 +16,7 @@ namespace Animals.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new txtWinner());
+            Application.Run(new GameForm());
         }
     }
 }
