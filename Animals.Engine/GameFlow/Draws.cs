@@ -1,10 +1,12 @@
-﻿using Animals.Engine.Animals;
+﻿using Animals.Engine.Advantages;
+using Animals.Engine.Advantages.Implementations;
+using Animals.Engine.Animals;
 using Animals.Engine.Animals.Implementations;
 using Animals.Engine.UI.Interfaces;
 
 namespace Animals.Engine.GameFlow
 {
-    public static class HeroDraws
+    public static class Draws
     {
         public static IAnimal GetAnimal(string name, IUIStream uiStream)
         {
@@ -23,6 +25,20 @@ namespace Animals.Engine.GameFlow
                 animal = new RandomBug(name, true, 20, 3, 25, uiStream);
             }
             return animal;
+        }
+        public static Advantage GetAdvantage()
+        {
+            Advantage advantage;
+            int rnd = Utilities.Math.RandomNumberBetween(0, 2);
+            if (rnd == 0)
+            {
+                advantage = new RedrawDeckAdvantage();
+            }
+            else
+            {
+                advantage = new RedrawDeckAdvantage();
+            }
+            return advantage;
         }
     }
 }
