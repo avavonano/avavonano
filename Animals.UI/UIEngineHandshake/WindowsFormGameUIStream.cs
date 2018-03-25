@@ -47,7 +47,8 @@ namespace Animals.UI.UIEngineHandshake
             {
                 pickCardForm.ShowDialog();
                 animal = pickCardForm.HeroIndex;
-            }            
+            }
+            FocusAfterPrompt();
             return animal;
         }
 
@@ -75,16 +76,15 @@ namespace Animals.UI.UIEngineHandshake
             _gameForm.Show();
         }
 
-        public Advantage PromptPlayerToPickAdvantage(Player player)
+        public int PromptPlayerToPickAdvantage(Player player)
         {
-            Advantage advantage = null;
+            int advantage = -1;
             using (PickAdvantageForm pickAdvantageForm = new PickAdvantageForm(player))
             {
                 pickAdvantageForm.ShowDialog();
                 if(pickAdvantageForm.AdvantageIndex>=0)
                 {
-                    advantage = player.Advantages[pickAdvantageForm.AdvantageIndex];
-                    player.Advantages.RemoveAt(pickAdvantageForm.AdvantageIndex);
+                    advantage = pickAdvantageForm.AdvantageIndex;
                 }                
             }
             return advantage;

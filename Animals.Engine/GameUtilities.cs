@@ -1,4 +1,5 @@
-﻿using Animals.Engine.Animals;
+﻿using Animals.Engine.Advantages;
+using Animals.Engine.Animals;
 using Animals.Engine.GameFlow;
 using Animals.Engine.UI.Interfaces;
 using Animals.Engine.UI.Interfaces.Enums;
@@ -35,6 +36,14 @@ namespace Animals.Engine
             animal = user.Deck[cardIdx];
             user.Deck.RemoveAt(cardIdx);
             return animal;
+        }
+        public static Advantage PromptPlayerToAdvantage(Player user, IGameUIStream uiStream)
+        {
+            Advantage advantage = null;
+            int cardIdx = uiStream.PromptPlayerToPickAdvantage(user);
+            advantage = user.Advantages[cardIdx];
+            user.Advantages.RemoveAt(cardIdx);
+            return advantage;
         }
     }
 }

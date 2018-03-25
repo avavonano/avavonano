@@ -10,7 +10,7 @@ namespace Animals.Engine.UI.Interfaces
         void DeclareWinner(Score score, string usrName, string opponentName);
         int PromptPlayerToPickCard(Player player);
         void ShowUserDeck(Player player, string msg);
-        Advantage PromptPlayerToPickAdvantage(Player player);
+        int PromptPlayerToPickAdvantage(Player player);
         void FocusAfterPrompt();
     }
 }
