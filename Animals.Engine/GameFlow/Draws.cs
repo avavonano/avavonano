@@ -29,14 +29,18 @@ namespace Animals.Engine.GameFlow
         public static Advantage GetAdvantage()
         {
             Advantage advantage;
-            int rnd = Utilities.Math.RandomNumberBetween(0, 2);
+            int rnd = Utilities.Math.RandomNumberBetween(0, 3);
             if (rnd == 0)
+            {
+                advantage = new RedrawDeckAdvantage();
+            }
+            else if (rnd == 1)
             {
                 advantage = new RedrawDeckAdvantage();
             }
             else
             {
-                advantage = new RedrawDeckAdvantage();
+                advantage = new SeeOpponentDeck();
             }
             return advantage;
         }

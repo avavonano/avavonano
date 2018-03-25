@@ -90,9 +90,9 @@ namespace Animals.UI.UIEngineHandshake
             return advantage;
         }
 
-        public void ShowUserDeck(Player player)
+        public void ShowUserDeck(Player player,string msg)
         {
-            using (PickHeroForm pickCardForm = new PickHeroForm(this, player,"Check out your deck. If you want to continue, exit."))
+            using (PickHeroForm pickCardForm = new PickHeroForm(this, player,msg))
             {
                 pickCardForm.ShowDialog();                
             }

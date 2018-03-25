@@ -1,4 +1,6 @@
-﻿using Animals.Engine.UI.Interfaces;
+﻿using Animals.Engine.Animals;
+using Animals.Engine.GameFlow;
+using Animals.Engine.UI.Interfaces;
 using Animals.Engine.UI.Interfaces.Enums;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,15 @@ namespace Animals.Engine
             {
                 return Winner.Computer;
             }
+        }
+
+        public static IAnimal PromptPlayerToPickCard(Player user,IGameUIStream uiStream)
+        {
+            IAnimal animal = null;
+            int cardIdx = uiStream.PromptPlayerToPickCard(user);
+            animal = user.Deck[cardIdx];
+            user.Deck.RemoveAt(cardIdx);
+            return animal;
         }
     }
 }

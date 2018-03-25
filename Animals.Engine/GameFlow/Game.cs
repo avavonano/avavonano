@@ -35,14 +35,7 @@ namespace Animals.Engine.GameFlow
             player.Deck.RemoveAt(pickedAnimalIndex);
             return pickedAnimal;
         }
-        IAnimal PromptPlayerToPickCard(Player user)
-        {
-            IAnimal animal = null;
-            int cardIdx = UIStream.PromptPlayerToPickCard(User);
-            animal = user.Deck[cardIdx];
-            user.Deck.RemoveAt(cardIdx);
-            return animal;
-        }
+        
         /// <summary>
         /// Need to dehardcode zero indices to enable multicard.
         /// </summary>
@@ -65,9 +58,9 @@ namespace Animals.Engine.GameFlow
                 {
                     PC.DrawAdvantage();
                 }                
-                UIStream.ShowUserDeck(User);
+                UIStream.ShowUserDeck(User, "Check out your deck. If you want to continue, exit.");
                 ExcerciseAdvantages();
-                IAnimal userAnimal = PromptPlayerToPickCard(User);
+                IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);
                 UIStream.FocusAfterPrompt();
                 IAnimal pcAnimal = GetPCAnimal(PC,User);
                 userAnimal.ShowHero();
