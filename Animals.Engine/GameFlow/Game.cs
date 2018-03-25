@@ -112,6 +112,7 @@ namespace Animals.Engine.GameFlow
             if ((!PC.Advantages.IsNull()) && PC.Advantages.Count > 0)//todo add logic on how pc excercies advantage
             {
                 var advantage = PC.Advantages[0];
+                PC.Advantages.RemoveAt(0);
                 advantage?.ApplyAdvantage(PC, this);
             }
         }
