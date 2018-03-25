@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Animals.UI.Forms
 {
     public partial class WarningForm : Form
@@ -16,6 +8,10 @@ namespace Animals.UI.Forms
         {
             InitializeComponent();
             warningTxtBox.Text = warning;
+        }
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

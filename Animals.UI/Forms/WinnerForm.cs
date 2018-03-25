@@ -9,5 +9,10 @@ namespace Animals.UI
             InitializeComponent();
             Multimedia.ShowWinner(winner, winnerPictureBox,winnerTextBox);
         }
+
+        private void winnerPictureBox_Click(object sender, System.EventArgs e)
+        {
+            Hide();
+        }
     }
 }
