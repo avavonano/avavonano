@@ -1,12 +1,23 @@
-﻿namespace Animals.UI
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Animals.UI
 {
     partial class WinnerForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
+        private IContainer components = null;
+        /// <summary>
+        /// Here the picture that indicates the winner appears.
+        /// </summary>
+        private PictureBox winnerPictureBox;
+        /// <summary>
+        /// Phrase said to the user when a winner is declared.
+        /// </summary>
+        private TextBox winnerTextBox;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -28,39 +39,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.winnerPictureBox = new System.Windows.Forms.PictureBox();
-            this.winnerTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.winnerPictureBox)).BeginInit();
+            this.winnerPictureBox = new PictureBox();
+            this.winnerTextBox = new TextBox();
+            ((ISupportInitialize)(this.winnerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // winnerPictureBox
             // 
-            this.winnerPictureBox.Location = new System.Drawing.Point(12, 12);
+            this.winnerPictureBox.Location = new Point(12, 12);
             this.winnerPictureBox.Name = "winnerPictureBox";
-            this.winnerPictureBox.Size = new System.Drawing.Size(458, 373);
+            this.winnerPictureBox.Size = new Size(458, 373);
+            this.winnerPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             this.winnerPictureBox.TabIndex = 0;
             this.winnerPictureBox.TabStop = false;
             // 
             // winnerTextBox
             // 
-            this.winnerTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.winnerTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.winnerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winnerTextBox.Location = new System.Drawing.Point(12, 403);
+            this.winnerTextBox.BackColor = SystemColors.Control;
+            this.winnerTextBox.BorderStyle = BorderStyle.None;
+            this.winnerTextBox.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.winnerTextBox.Location = new Point(12, 403);
+            this.winnerTextBox.Multiline = true;
             this.winnerTextBox.Name = "winnerTextBox";
-            this.winnerTextBox.Size = new System.Drawing.Size(458, 38);
+            this.winnerTextBox.Size = new Size(458, 22);
             this.winnerTextBox.TabIndex = 1;
             // 
             // WinnerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 453);
+            this.AutoScaleDimensions = new SizeF(8F, 16F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(482, 453);
             this.Controls.Add(this.winnerTextBox);
             this.Controls.Add(this.winnerPictureBox);
             this.Name = "WinnerForm";
             this.Text = "Who\'s the winner?";
-            ((System.ComponentModel.ISupportInitialize)(this.winnerPictureBox)).EndInit();
+            ((ISupportInitialize)(this.winnerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,7 +81,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox winnerPictureBox;
-        private System.Windows.Forms.TextBox winnerTextBox;
+        
     }
 }
