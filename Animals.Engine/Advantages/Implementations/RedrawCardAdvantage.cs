@@ -12,7 +12,7 @@ namespace Animals.Engine.Advantages.Implementations
         {
             IAnimal animalThatIsDeletd =  GameUtilities.PromptPlayerToPickCard(player, game.UIStream);
             player.Deck.Add(Draws.GetAnimal(player.UserName, player.UIStream));
-            game.UIStream.ShowUserDeck(player);
+            game.UIStream.ShowUserDeck(player, "Check out your deck after the "+GetType().Name+" advantage. If you want to continue, exit.");
         }
     }
 }
