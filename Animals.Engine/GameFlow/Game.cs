@@ -57,8 +57,7 @@ namespace Animals.Engine.GameFlow
                 if (pcAdvantageIdx == 1)
                 {
                     PC.DrawAdvantage();
-                }                
-                UIStream.ShowUserDeck(User, "Check out your deck. If you want to continue, exit.");
+                }
                 ExcerciseAdvantages();
                 IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);
                 UIStream.FocusAfterPrompt();
@@ -106,6 +105,7 @@ namespace Animals.Engine.GameFlow
         {
             if ((!User.Advantages.IsNull()) && User.Advantages.Count > 0)
             {
+                UIStream.ShowUserDeck(User, "Check out your deck before excercising an advantage. Exit to continue.");
                 var advantage = UIStream.PromptPlayerToPickAdvantage(User);
                 advantage?.ApplyAdvantage(User, this);
             }
