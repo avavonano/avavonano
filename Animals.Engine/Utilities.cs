@@ -56,6 +56,10 @@ namespace Animals.Engine
             source.Value = value;
             source.Update();
         }
+        public static string ToString(object that)
+        {
+            return Convert.ToString(that);
+        }
         public static void Initiate(this ProgressBar source, int max)
         {
             source.Maximum = max;

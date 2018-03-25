@@ -14,6 +14,5 @@ namespace Animals.Engine.UI.Interfaces
         void UpdateStats(IAnimal animal);
         void ShowHero(AnimalType animalType);
         void Reset(IAnimal animal);
-        IAnimal PickAnimal();
     }
 }

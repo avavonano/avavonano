@@ -16,19 +16,29 @@ namespace Animals.UI
     {
         public int HeroIndex { get; private set; }
         private IGameUIStream _uiStream;
+        private List<PictureBox> _pictures;
+
         public PickHeroForm(IGameUIStream uiStream, Player player)
         {
             _uiStream = uiStream;
             InitializeComponent();
-            List<PictureBox> pictures = new List<PictureBox>();
-            pictures.Add(firstHeroPictureBox);
-            pictures.Add(secondHeroPictureBox);
-            pictures.Add(thirdHeroPictureBox);
-            pictures.Add(fourthHeroPictureBox);
-            pictures.Add(fifthHeroPictureBox);
-            for(int i=0;i<player.Deck.Count;++i)
+            _pictures = new List<PictureBox>();
+            _pictures.Add(firstHeroPictureBox);
+            _pictures.Add(secondHeroPictureBox);
+            _pictures.Add(thirdHeroPictureBox);
+            _pictures.Add(fourthHeroPictureBox);
+            _pictures.Add(fifthHeroPictureBox);
+            for(int i=0;i< _pictures.Count;++i)
             {
-                HeroMultimedia.ShowHero(player.Deck[i].AnimalType, pictures[i]);
+                if(i<player.Deck.Count)
+                {
+                    Multimedia.ShowHero(player.Deck[i].AnimalType, _pictures[i]);
+                }
+                else
+                {
+                    _pictures[i].Hide();
+                }
+                
             }
         }
 

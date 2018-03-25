@@ -39,17 +39,12 @@ namespace Animals.UI
 
         public void ShowHero(AnimalType animalType)
         {
-            HeroMultimedia.ShowHero(animalType, _heroPictureBox);
+            Multimedia.ShowHero(animalType, _heroPictureBox);
         }
 
         public void Reset(IAnimal animal)
         {
             _lifeBar.Initiate(animal.InitialLife);
-        }
-
-        public IAnimal PickAnimal()
-        {
-            throw new NotImplementedException();
         }
     }
     public class Labels

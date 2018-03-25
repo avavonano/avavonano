@@ -21,6 +21,7 @@ namespace Animals.Engine.GameFlow
         {
             IAnimal pickedAnimal = null;
             int pickedAnimalIndex = 0;
+            //todo add logic for the pc to pick next card
             if (alreadyPickedOpponentAnimal==null)//plays first
             {
                 pickedAnimalIndex = 0;
@@ -37,7 +38,8 @@ namespace Animals.Engine.GameFlow
         /// Need to dehardcode zero indices to enable multicard.
         /// </summary>
         public void Duel()
-        {            
+        {
+            Score score = new Score();
             while(User.Deck.Count>0 && PC.Deck.Count>0)
             {
                 int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
@@ -63,7 +65,7 @@ namespace Animals.Engine.GameFlow
                     UIStream.UpdateRound(roundIdx);
                     if (userDied || pcDied)
                     {
-                        UIStream.DeclareWinner(userDied, pcDied, pcAnimal.Name, userAnimal.Name);
+                        
                         if(userDied && pcDied)
                         {
                             firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
@@ -76,10 +78,13 @@ namespace Animals.Engine.GameFlow
                         {
                             firstPlayerFlag = 0;
                         }
+                        UIStream.UpdateScore(userDied, pcDied,ref score);
                         break;
                     }
                 }
-            }            
+            }
+            UIStream.DeclareWinner(score, PC.UserName, User.UserName);
         }
     }
+    
 }

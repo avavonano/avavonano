@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Animals.Engine.Animals;
 using Animals.Engine.GameFlow;
+using Animals.Engine.UI.Interfaces.Enums;
 
 namespace Animals.UI.UIEngineHandshake
 {
@@ -15,26 +16,23 @@ namespace Animals.UI.UIEngineHandshake
     {
         private TextBox _roundBox;
         private TextBox _winnerBox;
-        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox)
+        private TextBox _userScoreTxtBox;
+        private TextBox _pcScoreTxtBox;
+        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox, TextBox userScoreTxtBox, TextBox pcScoreTxtBox)
         {
             _roundBox = roundBox;
             _winnerBox = winnerBox;
+            _userScoreTxtBox = userScoreTxtBox;
+            _pcScoreTxtBox = pcScoreTxtBox;
+            _userScoreTxtBox.Text = "0";
+            _pcScoreTxtBox.Text = "0";
         }
 
-        public void DeclareWinner(bool userDied, bool pcDied, string usrName, string opponentName)
+        public void DeclareWinner(Score score, string usrName, string opponentName)
         {
-            if (userDied && pcDied)
-            {
-                _winnerBox.ReplaceText("None!");
-            }
-            else if (userDied)
-            {
-                _winnerBox.ReplaceText(usrName);
-            }
-            else
-            {
-                _winnerBox.ReplaceText(opponentName);
-            }
+            Winner winner = GameUtilities.GetWinner(score);
+            WinnerForm winnerForm = new WinnerForm(winner);
+            winnerForm.ShowDialog();
         }
 
         public IAnimal PromptPlayerToPickCard(Player player)
@@ -52,6 +50,20 @@ namespace Animals.UI.UIEngineHandshake
         public void UpdateRound(int round)
         {
             _roundBox.ReplaceText(round + "");
+        }
+
+        public void UpdateScore(bool userDied, bool pcDied, ref Score score)
+        {
+            if(userDied && !(pcDied))
+            {
+                score.UpdateScore(0, 1);
+                _pcScoreTxtBox.Text = score.PcScore.ToString();
+            }
+            else if (!(userDied) && pcDied)
+            {
+                score.UpdateScore(1, 0);
+                _userScoreTxtBox.Text = score.UserScore.ToString();
+            }
         }
     }
 }

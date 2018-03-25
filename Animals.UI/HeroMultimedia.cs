@@ -1,5 +1,6 @@
 ﻿using Animals.Engine;
 using Animals.Engine.Animals;
+using Animals.Engine.UI.Interfaces.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Animals.UI
 {
-    public static class HeroMultimedia
+    public static class Multimedia
     {
         public static void ShowHero(AnimalType animalType, PictureBox heroPictureBox)
         {
@@ -24,6 +25,21 @@ namespace Animals.UI
             else
             {
                 heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
+            }
+        }
+        public static void ShowWinner(Winner winner, PictureBox winnerPictureBox)
+        {
+            if (winner == Winner.User)
+            {
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
+            }
+            else if (winner == Winner.Computer)
+            {
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
+            }
+            else
+            {
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
             }
         }
     }
