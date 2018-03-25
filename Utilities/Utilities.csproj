@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1509EA5-B8D0-4B9E-861B-DA6FC5ABDC50}</ProjectGuid>
+    <ProjectGuid>{0FD73960-8C98-4C45-A6F1-DF2F6B04B903}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Animals.Engine</RootNamespace>
-    <AssemblyName>Animals.Engine</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Utilities</RootNamespace>
+    <AssemblyName>Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -42,28 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animals\AnimalType.cs" />
-    <Compile Include="Animals\IAnimal.cs" />
-    <Compile Include="Animals\Implementations\Animal.cs" />
-    <Compile Include="Animals\Implementations\Cat.cs" />
-    <Compile Include="Animals\Implementations\Dog.cs" />
-    <Compile Include="Animals\Implementations\RandomBug.cs" />
-    <Compile Include="Animals\Implementations\Rhino.cs" />
-    <Compile Include="GameFlow\Game.cs" />
-    <Compile Include="GameFlow\HeroDraws.cs" />
-    <Compile Include="GameFlow\Player.cs" />
-    <Compile Include="GameUtilities.cs" />
+    <Compile Include="Math.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI.Interfaces\Enums\Winner.cs" />
-    <Compile Include="UI.Interfaces\IGameUIStream.cs" />
-    <Compile Include="UI.Interfaces\IUIStream.cs" />
-    <Compile Include="UI.Interfaces\Score.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{0fd73960-8c98-4c45-a6f1-df2f6b04b903}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
+    <Compile Include="Std.cs" />
+    <Compile Include="WinFormUtilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

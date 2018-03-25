@@ -105,6 +105,10 @@
       <Project>{c1509ea5-b8d0-4b9e-861b-da6fc5abdc50}</Project>
       <Name>Animals.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{0fd73960-8c98-4c45-a6f1-df2f6b04b903}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Heroes\MosquitoImage.jpg" />

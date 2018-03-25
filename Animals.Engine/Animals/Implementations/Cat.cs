@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using Utilities;
 
 namespace Animals.Engine.Animals.Implementations
 {
@@ -31,9 +32,9 @@ namespace Animals.Engine.Animals.Implementations
                     _catLife -= 1;
                     Talk("Still " + _catLife + " out of 7 lifes bitch! MiaaaaaaarrrMouahahahahah");
                     //Life += InitialLife;
-                    Life = Utilities.RandomNumberBetween(50, 101);
-                    Damage +=Utilities.RandomNumberBetween(1, 8);
-                    Defense += Utilities.RandomNumberBetween(1, 8);
+                    Life = Utilities.Math.RandomNumberBetween(50, 101);
+                    Damage += Utilities.Math.RandomNumberBetween(1, 8);
+                    Defense += Utilities.Math.RandomNumberBetween(1, 8);
                 }
             }
             return false;
@@ -41,7 +42,7 @@ namespace Animals.Engine.Animals.Implementations
         protected override void AttackInternal(IAnimal opponent)
         {
             Talk("Hhhssshhhhhhhhhhhhhhhhhhhhhhhhsssss");
-            int a = Utilities.RandomNumberBetween(1, 5);
+            int a = Utilities.Math.RandomNumberBetween(1, 5);
             int extraDamage = 0;
             if (a == 3)
             {
@@ -58,7 +59,7 @@ namespace Animals.Engine.Animals.Implementations
 
         public override int Defend(IAnimal opponent)
         {
-            opponent.Life -= Utilities.RandomNumberBetween(0, opponent is RandomBug ? 0: Defense);
+            opponent.Life -= Utilities.Math.RandomNumberBetween(0, opponent is RandomBug ? 0: Defense);
             return 0;
         }
     }

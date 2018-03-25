@@ -42,7 +42,7 @@ namespace Animals.Engine.GameFlow
             Score score = new Score();
             while(User.Deck.Count>0 && PC.Deck.Count>0)
             {
-                int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
+                int firstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
                 bool userDied = false;
                 bool pcDied = false;
                 IAnimal userAnimal = UIStream.PromptPlayerToPickCard(User);
@@ -51,7 +51,7 @@ namespace Animals.Engine.GameFlow
                 pcAnimal.ShowHero();
                 for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
+                    Thread.Sleep(Utilities.Math.RandomNumberBetween(500, 1500));
                     if (roundIdx % 2 == 0)
                     {
                         userAnimal.Attack(pcAnimal);
@@ -68,7 +68,7 @@ namespace Animals.Engine.GameFlow
                         
                         if(userDied && pcDied)
                         {
-                            firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
+                            firstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
                         }
                         else if(userDied)
                         {

@@ -20,16 +20,16 @@ namespace Animals.Engine.Animals.Implementations
             Talk("You will meet a horrible death");
             if(opponent is Dog)
             {
-                Damage += Utilities.RandomNumberBetween(25, 45);
+                Damage += Utilities.Math.RandomNumberBetween(25, 45);
             }
-            int a = Utilities.RandomNumberBetween(1, 30);
+            int a = Utilities.Math.RandomNumberBetween(1, 30);
             int extraDamage = 0;
             if (a == 1)
             {
                 Talk("Your end is near");
                 extraDamage = (opponent.Life) / 2;
             }
-            int b = Utilities.RandomNumberBetween(1, 5);
+            int b = Utilities.Math.RandomNumberBetween(1, 5);
             if (b == 1)
             {
                 Talk("You got away, this time...");
@@ -44,7 +44,7 @@ namespace Animals.Engine.Animals.Implementations
 
         public override int Defend(IAnimal opponent)
         {
-            return Utilities.RandomNumberBetween(0, Defense);
+            return Utilities.Math.RandomNumberBetween(0, Defense);
         }
     }
 

@@ -9,7 +9,7 @@ namespace Animals.Engine.GameFlow
         public static IAnimal GetAnimal(string name, IUIStream uiStream)
         {
             IAnimal animal;
-            int rnd = Utilities.RandomNumberBetween(0, 3);
+            int rnd = Utilities.Math.RandomNumberBetween(0, 3);
             if (rnd == 0)
             {
                 animal = new Cat(name, false, false, 200, 20, 10, uiStream);

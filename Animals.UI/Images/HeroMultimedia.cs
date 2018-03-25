@@ -1,12 +1,8 @@
 ﻿using Animals.Engine;
 using Animals.Engine.Animals;
 using Animals.Engine.UI.Interfaces.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities;
 
 namespace Animals.UI
 {
