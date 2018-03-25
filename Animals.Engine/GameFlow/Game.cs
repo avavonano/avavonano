@@ -1,16 +1,13 @@
-﻿using Animals.Engine.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Animals.Engine.Animals;
+using Animals.Engine.UI.Interfaces;
 using System.Threading;
-using System.Threading.Tasks;
-
+using Utilities;
 namespace Animals.Engine.GameFlow
 {
     public class Game
     {
         public int InitialCardsNumber { get; }
+        public int CurrentCardsNumber { get; private set; }
         public Player User { get; set; }
         public Player PC { get; set; }
         public IGameUIStream UIStream { get; set; }
@@ -21,35 +18,87 @@ namespace Animals.Engine.GameFlow
             PC = pc;
             UIStream = uiStream;
         }
+        
+        
         /// <summary>
-        /// Need to dehardcode zero indices to enable multicard
+        /// Need to dehardcode zero indices to enable multicard.
         /// </summary>
         public void Duel()
         {
-            int firstPlayerFlag = Utilities.RandomNumberBetween(0, 2);
-            bool userDied = false;
-            bool pcDied = false;
-            for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
+            Score score = new Score();
+            CurrentCardsNumber = User.Deck.Count;
+            while (CurrentCardsNumber > 0)
             {
-                Thread.Sleep(Utilities.RandomNumberBetween(500, 1500));
-                if (roundIdx % 2 == 0)
+                int firstPlayerFlag = Math.RandomNumberBetween(0, 2);
+                bool userDied = false;
+                bool pcDied = false;
+                int usrAdvantageIdx = Math.RandomNumberBetween(0, 3);
+                int pcAdvantageIdx = Math.RandomNumberBetween(0, 3);
+                if(usrAdvantageIdx==2)
                 {
-                    User.Deck[0].Attack(PC.Deck[0]);
+                    User.DrawAdvantage();
                 }
-                else
+                if (pcAdvantageIdx == 1)
                 {
-                    PC.Deck[0].Attack(User.Deck[0]);
+                    PC.DrawAdvantage();
                 }
-                userDied = User.Deck[0].CheckDeath();
-                pcDied = PC.Deck[0].CheckDeath();
-                UIStream.UpdateRound(roundIdx);
-                if (userDied || pcDied)
+                ExcerciseAdvantages();
+                IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);
+                
+                IAnimal pcAnimal =GameUtilities.GetPCAnimal(PC,User);
+                userAnimal.ShowHero();
+                pcAnimal.ShowHero();
+                for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    UIStream.DeclareWinner(userDied, pcDied, PC.Deck[0].Name, User.Deck[0].Name);
-                    break;
+                    Thread.Sleep(Math.RandomNumberBetween(500, 1500));
+                    if (roundIdx % 2 == 0)
+                    {
+                        userAnimal.Attack(pcAnimal);
+                    }
+                    else
+                    {
+                        pcAnimal.Attack(userAnimal);
+                    }
+                    userDied = userAnimal.CheckDeath();
+                    pcDied = pcAnimal.CheckDeath();
+                    UIStream.UpdateRound(roundIdx);
+                    if (userDied || pcDied)
+                    {
+                        
+                        if(userDied && pcDied)
+                        {
+                            firstPlayerFlag = Math.RandomNumberBetween(0, 2);
+                        }
+                        else if(userDied)
+                        {
+                            firstPlayerFlag = 1;
+                        }
+                        else
+                        {
+                            firstPlayerFlag = 0;
+                        }
+                        UIStream.UpdateScore(userDied, pcDied,ref score);
+                        break;
+                    }
                 }
-
+                CurrentCardsNumber = User.Deck.Count;
+            }
+            UIStream.DeclareWinner(score, PC.UserName, User.UserName);
+        }
+        private void ExcerciseAdvantages()
+        {
+            if ((!User.Advantages.IsNull()) && User.Advantages.Count > 0)
+            {
+                UIStream.ShowUserDeck(User, "Check out your deck before excercising an advantage. Exit to continue.");
+                var advantage =GameUtilities.PromptPlayerToPickAdvantage(User, UIStream);
+                advantage?.ApplyAdvantage(User, this);
+            }
+            if ((!PC.Advantages.IsNull()) && PC.Advantages.Count > 0)//todo add logic on how pc excercies advantage
+            {
+                var advantage = GameUtilities.GetPCAdvantage(PC, UIStream);
+                advantage?.ApplyAdvantage(PC, this);
             }
         }
     }
+    
 }

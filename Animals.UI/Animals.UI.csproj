@@ -45,18 +45,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PickAdvantageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PickAdvantageForm.Designer.cs">
+      <DependentUpon>PickAdvantageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WarningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WarningForm.Designer.cs">
+      <DependentUpon>WarningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\YesOrNoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\YesOrNoForm.Designer.cs">
+      <DependentUpon>YesOrNoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\HeroMultimedia.cs" />
+    <Compile Include="Forms\PickHeroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PickHeroForm.Designer.cs">
+      <DependentUpon>PickHeroForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIEngineHandshake\WindowsFormGameUIStream.cs" />
     <Compile Include="UIEngineHandshake\WindowsFormUIStream.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\WinnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WinnerForm.Designer.cs">
+      <DependentUpon>WinnerForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PickAdvantageForm.resx">
+      <DependentUpon>PickAdvantageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PickHeroForm.resx">
+      <DependentUpon>PickHeroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WarningForm.resx">
+      <DependentUpon>WarningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\YesOrNoForm.resx">
+      <DependentUpon>YesOrNoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +111,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Forms\WinnerForm.resx">
+      <DependentUpon>WinnerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,11 +132,19 @@
       <Project>{c1509ea5-b8d0-4b9e-861b-da6fc5abdc50}</Project>
       <Name>Animals.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{0fd73960-8c98-4c45-a6f1-df2f6b04b903}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MosquitoImage.jpg" />
-    <None Include="catPicture.jpg" />
-    <Content Include="DogImage.jpg" />
+    <Content Include="Images\Winner\loser.jpg" />
+    <Content Include="Images\Winner\tie.jpg" />
+    <Content Include="Images\Winner\winner.jpg" />
+    <None Include="Images\Heroes\MosquitoImage.jpg" />
+    <None Include="Images\Heroes\catPicture.jpg" />
+    <Content Include="Images\Heroes\DogImage.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

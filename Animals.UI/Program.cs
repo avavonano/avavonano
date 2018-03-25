@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Animals.UI
 {
     static class Program
@@ -16,7 +12,7 @@ namespace Animals.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new txtWinner());
+            Application.Run(new GameForm());
         }
     }
 }

@@ -6,38 +6,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Animals.Engine.Animals;
+using Animals.Engine.GameFlow;
+using Animals.Engine.UI.Interfaces.Enums;
+using Utilities;
+using Animals.Engine.Advantages;
+using Animals.UI.Forms;
 
 namespace Animals.UI.UIEngineHandshake
 {
     public class WindowsFormGameUIStream : IGameUIStream
     {
+        private GameForm _gameForm;
         private TextBox _roundBox;
         private TextBox _winnerBox;
-        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox)
+        private TextBox _userScoreTxtBox;
+        private TextBox _pcScoreTxtBox;
+        public WindowsFormGameUIStream(TextBox roundBox, TextBox winnerBox, TextBox userScoreTxtBox, TextBox pcScoreTxtBox, GameForm gameForm)
         {
             _roundBox = roundBox;
             _winnerBox = winnerBox;
+            _userScoreTxtBox = userScoreTxtBox;
+            _pcScoreTxtBox = pcScoreTxtBox;
+            _userScoreTxtBox.Text = "0";
+            _pcScoreTxtBox.Text = "0";
+            _gameForm=gameForm;
         }
 
-        public void DeclareWinner(bool userDied, bool pcDied, string usrName, string opponentName)
+        public void DeclareWinner(Score score, string usrName, string opponentName)
         {
-            if (userDied && pcDied)
+            Winner winner = GameUtilities.GetWinner(score);
+            WinnerForm winnerForm = new WinnerForm(winner);
+            winnerForm.ShowDialog();
+        }
+
+        public int PromptPlayerToPickCard(Player player)
+        {
+            int animal = -1;
+            using (PickHeroForm pickCardForm = new PickHeroForm(this,player))
             {
-                _winnerBox.ReplaceText("None!");
+                pickCardForm.ShowDialog();
+                animal = pickCardForm.HeroIndex;
             }
-            else if (userDied)
-            {
-                _winnerBox.ReplaceText(usrName);
-            }
-            else
-            {
-                _winnerBox.ReplaceText(opponentName);
-            }
+            FocusAfterPrompt();
+            return animal;
         }
 
         public void UpdateRound(int round)
         {
             _roundBox.ReplaceText(round + "");
+        }
+
+        public void UpdateScore(bool userDied, bool pcDied, ref Score score)
+        {
+            if(userDied && !(pcDied))
+            {
+                score.UpdateScore(0, 1);
+                _pcScoreTxtBox.Text = score.PcScore.ToString();
+            }
+            else if (!(userDied) && pcDied)
+            {
+                score.UpdateScore(1, 0);
+                _userScoreTxtBox.Text = score.UserScore.ToString();
+            }
+        }
+
+        public void FocusAfterPrompt()
+        {
+            _gameForm.Show();
+        }
+
+        public int PromptPlayerToPickAdvantage(Player player)
+        {
+            int advantage = -1;
+            using (PickAdvantageForm pickAdvantageForm = new PickAdvantageForm(player))
+            {
+                pickAdvantageForm.ShowDialog();
+                if(pickAdvantageForm.AdvantageIndex>=0)
+                {
+                    advantage = pickAdvantageForm.AdvantageIndex;
+                }                
+            }
+            return advantage;
+        }
+
+        public void ShowUserDeck(Player player,string msg)
+        {
+            using (PickHeroForm pickCardForm = new PickHeroForm(this, player,msg))
+            {
+                pickCardForm.ShowDialog();                
+            }
         }
     }
 }

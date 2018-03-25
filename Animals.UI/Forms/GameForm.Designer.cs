@@ -1,6 +1,8 @@
-﻿namespace Animals.UI
+﻿using System;
+
+namespace Animals.UI
 {
-    partial class txtWinner
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtWinner));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.cmdStartGame = new System.Windows.Forms.Button();
             this.playerConsole = new System.Windows.Forms.TextBox();
             this.opponentConsole = new System.Windows.Forms.TextBox();
@@ -50,6 +52,8 @@
             this.labelDefenceComputer = new System.Windows.Forms.Label();
             this.labelUserSpecialAbilities = new System.Windows.Forms.Label();
             this.labelPCSpecialAbilities = new System.Windows.Forms.Label();
+            this.playerScoreTxtBox = new System.Windows.Forms.TextBox();
+            this.pcScoreTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpponent)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +63,7 @@
             this.cmdStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdStartGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cmdStartGame.Location = new System.Drawing.Point(1172, 527);
-            this.cmdStartGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdStartGame.Margin = new System.Windows.Forms.Padding(4);
             this.cmdStartGame.Name = "cmdStartGame";
             this.cmdStartGame.Size = new System.Drawing.Size(209, 41);
             this.cmdStartGame.TabIndex = 0;
@@ -73,7 +77,7 @@
             this.playerConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerConsole.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.playerConsole.Location = new System.Drawing.Point(709, 47);
-            this.playerConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.playerConsole.Margin = new System.Windows.Forms.Padding(4);
             this.playerConsole.Multiline = true;
             this.playerConsole.Name = "playerConsole";
             this.playerConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -86,7 +90,7 @@
             this.opponentConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.opponentConsole.ForeColor = System.Drawing.Color.Red;
             this.opponentConsole.Location = new System.Drawing.Point(709, 271);
-            this.opponentConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.opponentConsole.Margin = new System.Windows.Forms.Padding(4);
             this.opponentConsole.Multiline = true;
             this.opponentConsole.Name = "opponentConsole";
             this.opponentConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -99,10 +103,11 @@
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(162, 539);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(268, 23);
             this.txtUserName.TabIndex = 3;
+            this.txtUserName.Text = "Symeon";
             // 
             // label1
             // 
@@ -123,7 +128,7 @@
             this.txtRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRound.ForeColor = System.Drawing.Color.Transparent;
             this.txtRound.Location = new System.Drawing.Point(1248, 4);
-            this.txtRound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRound.Margin = new System.Windows.Forms.Padding(4);
             this.txtRound.Name = "txtRound";
             this.txtRound.Size = new System.Drawing.Size(132, 23);
             this.txtRound.TabIndex = 5;
@@ -146,7 +151,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(704, 7);
+            this.label3.Location = new System.Drawing.Point(704, 505);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 25);
@@ -159,8 +164,8 @@
             this.txtBoxWinner.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxWinner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.txtBoxWinner.Location = new System.Drawing.Point(820, 4);
-            this.txtBoxWinner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxWinner.Location = new System.Drawing.Point(833, 505);
+            this.txtBoxWinner.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxWinner.Name = "txtBoxWinner";
             this.txtBoxWinner.Size = new System.Drawing.Size(132, 23);
             this.txtBoxWinner.TabIndex = 8;
@@ -168,7 +173,7 @@
             // userLifeBar
             // 
             this.userLifeBar.Location = new System.Drawing.Point(21, 401);
-            this.userLifeBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userLifeBar.Margin = new System.Windows.Forms.Padding(4);
             this.userLifeBar.Name = "userLifeBar";
             this.userLifeBar.Size = new System.Drawing.Size(303, 28);
             this.userLifeBar.TabIndex = 9;
@@ -176,7 +181,7 @@
             // opponentLifeBar
             // 
             this.opponentLifeBar.Location = new System.Drawing.Point(369, 401);
-            this.opponentLifeBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.opponentLifeBar.Margin = new System.Windows.Forms.Padding(4);
             this.opponentLifeBar.Name = "opponentLifeBar";
             this.opponentLifeBar.Size = new System.Drawing.Size(303, 28);
             this.opponentLifeBar.TabIndex = 10;
@@ -184,7 +189,7 @@
             // pictureBoxPlayer
             // 
             this.pictureBoxPlayer.Location = new System.Drawing.Point(21, 15);
-            this.pictureBoxPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPlayer.Name = "pictureBoxPlayer";
             this.pictureBoxPlayer.Size = new System.Drawing.Size(303, 379);
             this.pictureBoxPlayer.TabIndex = 11;
@@ -193,7 +198,7 @@
             // pictureBoxOpponent
             // 
             this.pictureBoxOpponent.Location = new System.Drawing.Point(369, 15);
-            this.pictureBoxOpponent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxOpponent.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOpponent.Name = "pictureBoxOpponent";
             this.pictureBoxOpponent.Size = new System.Drawing.Size(303, 379);
             this.pictureBoxOpponent.TabIndex = 12;
@@ -228,24 +233,24 @@
             this.labelLifePlayer.AutoSize = true;
             this.labelLifePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLifePlayer.ForeColor = System.Drawing.Color.Lime;
-            this.labelLifePlayer.Location = new System.Drawing.Point(285, 433);
+            this.labelLifePlayer.Location = new System.Drawing.Point(255, 433);
             this.labelLifePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLifePlayer.Name = "labelLifePlayer";
-            this.labelLifePlayer.Size = new System.Drawing.Size(36, 20);
+            this.labelLifePlayer.Size = new System.Drawing.Size(69, 20);
             this.labelLifePlayer.TabIndex = 15;
-            this.labelLifePlayer.Text = "xxx";
+            this.labelLifePlayer.Text = "xxx:yyy";
             // 
             // labelLifeComputer
             // 
             this.labelLifeComputer.AutoSize = true;
             this.labelLifeComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLifeComputer.ForeColor = System.Drawing.Color.Lime;
-            this.labelLifeComputer.Location = new System.Drawing.Point(633, 433);
+            this.labelLifeComputer.Location = new System.Drawing.Point(603, 433);
             this.labelLifeComputer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLifeComputer.Name = "labelLifeComputer";
-            this.labelLifeComputer.Size = new System.Drawing.Size(36, 20);
+            this.labelLifeComputer.Size = new System.Drawing.Size(69, 20);
             this.labelLifeComputer.TabIndex = 16;
-            this.labelLifeComputer.Text = "xxx";
+            this.labelLifeComputer.Text = "xxx:yyy";
             // 
             // labelAttackComputer
             // 
@@ -291,12 +296,38 @@
             this.labelPCSpecialAbilities.Size = new System.Drawing.Size(0, 17);
             this.labelPCSpecialAbilities.TabIndex = 20;
             // 
-            // txtWinner
+            // playerScoreTxtBox
+            // 
+            this.playerScoreTxtBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.playerScoreTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.playerScoreTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerScoreTxtBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.playerScoreTxtBox.Location = new System.Drawing.Point(709, 15);
+            this.playerScoreTxtBox.Name = "playerScoreTxtBox";
+            this.playerScoreTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.playerScoreTxtBox.TabIndex = 21;
+            this.playerScoreTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pcScoreTxtBox
+            // 
+            this.pcScoreTxtBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pcScoreTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pcScoreTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcScoreTxtBox.ForeColor = System.Drawing.Color.Red;
+            this.pcScoreTxtBox.Location = new System.Drawing.Point(833, 15);
+            this.pcScoreTxtBox.Name = "pcScoreTxtBox";
+            this.pcScoreTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.pcScoreTxtBox.TabIndex = 22;
+            this.pcScoreTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1397, 593);
+            this.Controls.Add(this.pcScoreTxtBox);
+            this.Controls.Add(this.playerScoreTxtBox);
             this.Controls.Add(this.labelPCSpecialAbilities);
             this.Controls.Add(this.labelUserSpecialAbilities);
             this.Controls.Add(this.labelDefenceComputer);
@@ -319,8 +350,8 @@
             this.Controls.Add(this.playerConsole);
             this.Controls.Add(this.cmdStartGame);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "txtWinner";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "GameForm";
             this.Text = "Animals";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpponent)).EndInit();
@@ -352,6 +383,8 @@
         private System.Windows.Forms.Label labelDefenceComputer;
         private System.Windows.Forms.Label labelUserSpecialAbilities;
         private System.Windows.Forms.Label labelPCSpecialAbilities;
+        private System.Windows.Forms.TextBox playerScoreTxtBox;
+        private System.Windows.Forms.TextBox pcScoreTxtBox;
     }
 }
 

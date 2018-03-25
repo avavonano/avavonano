@@ -23,7 +23,7 @@ namespace Animals.Engine.Animals.Implementations
         protected string greeting;
         
 
-        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, IUIStream uistream)
+        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, IUIStream uistream,string greeting_)
         {
             Name = name;
             IsFury = isFury;
@@ -34,17 +34,17 @@ namespace Animals.Engine.Animals.Implementations
             Console = uistream;
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
-            Console.Reset(this);
-            Console.UpdateStats(this);            
-            ShowHero();
+            greeting = greeting_;
         }
 
         public virtual void Talk(string extraGreeting = "")
         {
-            Console.Talk(extraGreeting == ""?greeting: Name + ": '" + extraGreeting + "'.");            
+            Console.Talk(extraGreeting == ""?greeting:  extraGreeting);            
         }
         public void ShowHero()
         {
+            Console.Reset(this);
+            Console.UpdateStats(this);
             Console.ShowHero(AnimalType);
         }
         public  void Attack(IAnimal opponent)
@@ -58,7 +58,7 @@ namespace Animals.Engine.Animals.Implementations
         public virtual bool CheckDeath()
         {
             bool res = Life <= 0;
-            Talk("Player " + Name + " has " + Life + " left out of " + InitialLife);
+            //Talk("Player " + Name + " has " + Life + " left out of " + InitialLife);
             if (res) { DeathWhisper(); }
             return res;
         }

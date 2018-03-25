@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animals\AnimalType.cs" />
+    <Compile Include="Advantages\Advantage.cs" />
+    <Compile Include="Advantages\AdvantageType.cs" />
+    <Compile Include="Advantages\Implementations\RedrawCardAdvantage.cs" />
+    <Compile Include="Advantages\Implementations\RedrawDeckAdvantage.cs" />
+    <Compile Include="Advantages\Implementations\SeeOpponentDeck.cs" />
+    <Compile Include="Animals\Support\AnimalType.cs" />
     <Compile Include="Animals\IAnimal.cs" />
     <Compile Include="Animals\Implementations\Animal.cs" />
     <Compile Include="Animals\Implementations\Cat.cs" />
@@ -50,12 +55,24 @@
     <Compile Include="Animals\Implementations\RandomBug.cs" />
     <Compile Include="Animals\Implementations\Rhino.cs" />
     <Compile Include="GameFlow\Game.cs" />
-    <Compile Include="GameFlow\HeroDraws.cs" />
+    <Compile Include="GameFlow\Draws.cs" />
     <Compile Include="GameFlow\Player.cs" />
+    <Compile Include="GameUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI.Interfaces\Advantages\IAdvantageUIStream.cs" />
+    <Compile Include="UI.Interfaces\Enums\Winner.cs" />
     <Compile Include="UI.Interfaces\IGameUIStream.cs" />
     <Compile Include="UI.Interfaces\IUIStream.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="UI.Interfaces\Helpers\Score.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{0fd73960-8c98-4c45-a6f1-df2f6b04b903}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

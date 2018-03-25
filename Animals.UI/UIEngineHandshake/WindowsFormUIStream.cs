@@ -3,6 +3,7 @@ using Animals.Engine.UI.Interfaces;
 using System.Windows.Forms;
 using System;
 using Animals.Engine.Animals;
+using Utilities;
 
 namespace Animals.UI
 {
@@ -29,7 +30,7 @@ namespace Animals.UI
 
         public void UpdateStats(IAnimal animal)
         {
-            _labels.Life.ReplaceText(animal.InitialLife + "");
+            _labels.Life.ReplaceText((animal.Life<0? 0:animal.Life) +":"+ animal.InitialLife);
             _labels.Attack.ReplaceText("Damage: " + animal.Damage + "");
             _labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
             _labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
@@ -39,18 +40,7 @@ namespace Animals.UI
 
         public void ShowHero(AnimalType animalType)
         {
-            if (animalType == AnimalType.Dog)
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
-            }
-            else if (animalType == AnimalType.Cat)
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
-            }
-            else
-            {
-                _heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
-            }
+            Multimedia.ShowHero(animalType, _heroPictureBox);
         }
 
         public void Reset(IAnimal animal)
