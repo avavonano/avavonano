@@ -124,6 +124,9 @@
   <data name="DogImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Heroes\DogImage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rhinoPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Heroes\rhinoPicture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Winner\tie.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="MosquitoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Heroes\MosquitoImage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rhinoPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Heroes\rhinoPicture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="justRatPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Heroes\justRatPicture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -286,7 +286,7 @@ namespace Animals.UI
             this.playerScoreTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScoreTxtBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.playerScoreTxtBox.Location = new System.Drawing.Point(532, 12);
-            this.playerScoreTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playerScoreTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.playerScoreTxtBox.Name = "playerScoreTxtBox";
             this.playerScoreTxtBox.Size = new System.Drawing.Size(75, 16);
             this.playerScoreTxtBox.TabIndex = 21;
@@ -299,7 +299,7 @@ namespace Animals.UI
             this.pcScoreTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pcScoreTxtBox.ForeColor = System.Drawing.Color.Red;
             this.pcScoreTxtBox.Location = new System.Drawing.Point(625, 12);
-            this.pcScoreTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcScoreTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.pcScoreTxtBox.Name = "pcScoreTxtBox";
             this.pcScoreTxtBox.Size = new System.Drawing.Size(75, 16);
             this.pcScoreTxtBox.TabIndex = 22;
