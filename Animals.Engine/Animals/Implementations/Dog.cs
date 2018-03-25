@@ -10,9 +10,8 @@ namespace Animals.Engine.Animals.Implementations
     {
 
         public Dog(string name, bool isFury, int life, int damage, int defence,IUIStream txtBox)
-            : base(name, isFury, life, damage,defence,AnimalType.Dog,"plus half opponent's life damage",txtBox)
+            : base(name, isFury, life, damage,defence,AnimalType.Dog,"plus half opponent's life damage",txtBox, "Woof")
         {
-            greeting = "Woof";
         }
         protected override void AttackInternal(IAnimal opponent)
         {

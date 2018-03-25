@@ -11,7 +11,7 @@ namespace Animals.Engine.Animals.Implementations
     public class RandomBug : Animal
     {
         public RandomBug(string name, bool isFury, int life, int damage, int defence, IUIStream txtBox) 
-            : base(name, isFury, life, damage, defence, AnimalType.RandomBug,"poison sting with virous",  txtBox)
+            : base(name, isFury, life, damage, defence, AnimalType.RandomBug,"poison sting with virous",  txtBox,"Bbbzzzzzz")
         {
         }
 

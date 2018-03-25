@@ -11,7 +11,7 @@ namespace Animals.Engine.Animals.Implementations
     public class Rhino : Animal
     {
         protected Rhino(string name, bool isFury, int life, int damage, int defence, IUIStream txtBox)
-            : base(name, isFury, life, damage, defence, AnimalType.Rhino,"to be filled",  txtBox)
+            : base(name, isFury, life, damage, defence, AnimalType.Rhino,"to be filled",  txtBox,"GGGGRRRRRRrrrrrrr")
         {
         }
 

@@ -14,10 +14,9 @@ namespace Animals.Engine.Animals.Implementations
         private bool _likesFish;
         private int _catLife = 7;
         public Cat(string name, bool isFury, bool likesFish, int life, int damage, int defence,IUIStream txtBox)
-            : base(name, isFury, life, damage,defence,AnimalType.Cat,"7 lifes",txtBox)
+            : base(name, isFury, life, damage,defence,AnimalType.Cat,"7 lifes",txtBox, "Meow")
         {
             _likesFish = likesFish;
-            greeting = "Meow";
         }
         public override bool CheckDeath()
         {
