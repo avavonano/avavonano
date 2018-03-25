@@ -17,6 +17,7 @@ namespace Animals.Engine.Advantages
         public void ApplyAdvantage(Player player, Game game)
         {
             ApplyAdvantageInternal(player, game);
+            player.UIStream.Talk("Advantage: " + GetType().Name + " (" + Description + ") was excercised.");
         }
         protected abstract void ApplyAdvantageInternal(Player player, Game game);
     }

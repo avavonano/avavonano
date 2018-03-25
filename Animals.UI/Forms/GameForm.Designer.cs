@@ -107,7 +107,7 @@ namespace Animals.UI
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(268, 23);
             this.txtUserName.TabIndex = 3;
-            this.txtUserName.Text = Environment.UserName;
+            this.txtUserName.Text = "Symeon";
             // 
             // label1
             // 
@@ -233,24 +233,24 @@ namespace Animals.UI
             this.labelLifePlayer.AutoSize = true;
             this.labelLifePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLifePlayer.ForeColor = System.Drawing.Color.Lime;
-            this.labelLifePlayer.Location = new System.Drawing.Point(285, 433);
+            this.labelLifePlayer.Location = new System.Drawing.Point(255, 433);
             this.labelLifePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLifePlayer.Name = "labelLifePlayer";
-            this.labelLifePlayer.Size = new System.Drawing.Size(36, 20);
+            this.labelLifePlayer.Size = new System.Drawing.Size(69, 20);
             this.labelLifePlayer.TabIndex = 15;
-            this.labelLifePlayer.Text = "xxx";
+            this.labelLifePlayer.Text = "xxx:yyy";
             // 
             // labelLifeComputer
             // 
             this.labelLifeComputer.AutoSize = true;
             this.labelLifeComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLifeComputer.ForeColor = System.Drawing.Color.Lime;
-            this.labelLifeComputer.Location = new System.Drawing.Point(633, 433);
+            this.labelLifeComputer.Location = new System.Drawing.Point(603, 433);
             this.labelLifeComputer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLifeComputer.Name = "labelLifeComputer";
-            this.labelLifeComputer.Size = new System.Drawing.Size(36, 20);
+            this.labelLifeComputer.Size = new System.Drawing.Size(69, 20);
             this.labelLifeComputer.TabIndex = 16;
-            this.labelLifeComputer.Text = "xxx";
+            this.labelLifeComputer.Text = "xxx:yyy";
             // 
             // labelAttackComputer
             // 
@@ -320,7 +320,7 @@ namespace Animals.UI
             this.pcScoreTxtBox.TabIndex = 22;
             this.pcScoreTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtWinner
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -351,7 +351,7 @@ namespace Animals.UI
             this.Controls.Add(this.cmdStartGame);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "txtWinner";
+            this.Name = "GameForm";
             this.Text = "Animals";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpponent)).EndInit();
