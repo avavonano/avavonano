@@ -34,8 +34,6 @@ namespace Animals.Engine.Animals.Implementations
             Console = uistream;
             AnimalType = animalType;
             SpecialAbilities = specialAbilities;
-                       
-           // ShowHero();
         }
 
         public virtual void Talk(string extraGreeting = "")

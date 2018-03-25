@@ -7,6 +7,7 @@ namespace Animals.Engine.GameFlow
     public class Game
     {
         public int InitialCardsNumber { get; }
+        public int CurrentCardsNumber { get; private set; }
         public Player User { get; set; }
         public Player PC { get; set; }
         public IGameUIStream UIStream { get; set; }
@@ -40,7 +41,8 @@ namespace Animals.Engine.GameFlow
         public void Duel()
         {
             Score score = new Score();
-            while(User.Deck.Count>0 && PC.Deck.Count>0)
+            CurrentCardsNumber = User.Deck.Count;
+            while (CurrentCardsNumber > 0)
             {
                 int firstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
                 bool userDied = false;
@@ -82,6 +84,7 @@ namespace Animals.Engine.GameFlow
                         break;
                     }
                 }
+                CurrentCardsNumber = User.Deck.Count;
             }
             UIStream.DeclareWinner(score, PC.UserName, User.UserName);
         }

@@ -12,6 +12,11 @@ namespace Utilities
         {
             return Convert.ToString(that);
         }
+        public static bool IsNull<T>(this T inp)
+        {
+            return inp == null;
+        }
+
         public static P SafeCast<T, P>(this T inp)
             where T : class, P
             where P : class
