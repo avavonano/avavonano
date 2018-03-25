@@ -1,7 +1,7 @@
 ﻿using Animals.Engine.Animals;
 using Animals.Engine.UI.Interfaces;
 using System.Threading;
-
+using Utilities;
 namespace Animals.Engine.GameFlow
 {
     public class Game
@@ -44,9 +44,13 @@ namespace Animals.Engine.GameFlow
             CurrentCardsNumber = User.Deck.Count;
             while (CurrentCardsNumber > 0)
             {
-                int firstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
+                int firstPlayerFlag = Math.RandomNumberBetween(0, 2);
                 bool userDied = false;
                 bool pcDied = false;
+                User.DrawAdvantage();
+                PC.DrawAdvantage();
+                UIStream.ShowUserDeck(User);
+                ExcerciseAdvantages();
                 IAnimal userAnimal = UIStream.PromptPlayerToPickCard(User);
                 UIStream.FocusAfterPrompt();
                 IAnimal pcAnimal = GetPCAnimal(PC,User);
@@ -54,7 +58,7 @@ namespace Animals.Engine.GameFlow
                 pcAnimal.ShowHero();
                 for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    Thread.Sleep(Utilities.Math.RandomNumberBetween(500, 1500));
+                    Thread.Sleep(Math.RandomNumberBetween(500, 1500));
                     if (roundIdx % 2 == 0)
                     {
                         userAnimal.Attack(pcAnimal);
@@ -71,7 +75,7 @@ namespace Animals.Engine.GameFlow
                         
                         if(userDied && pcDied)
                         {
-                            firstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
+                            firstPlayerFlag = Math.RandomNumberBetween(0, 2);
                         }
                         else if(userDied)
                         {
@@ -88,6 +92,19 @@ namespace Animals.Engine.GameFlow
                 CurrentCardsNumber = User.Deck.Count;
             }
             UIStream.DeclareWinner(score, PC.UserName, User.UserName);
+        }
+        private void ExcerciseAdvantages()
+        {
+            if ((!User.Advantages.IsNull()) && User.Advantages.Count > 0)
+            {
+                var advantage = UIStream.PromptPlayerToPickAdvantage(User);
+                advantage.ApplyAdvantage(User, this);
+            }
+            if ((!PC.Advantages.IsNull()) && PC.Advantages.Count > 0)//todo add logic on how pc excercies advantage
+            {
+                var advantage = PC.Advantages[0];
+                advantage.ApplyAdvantage(User, this);
+            }
         }
     }
     

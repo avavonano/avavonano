@@ -10,6 +10,8 @@ using Animals.Engine.Animals;
 using Animals.Engine.GameFlow;
 using Animals.Engine.UI.Interfaces.Enums;
 using Utilities;
+using Animals.Engine.Advantages;
+using Animals.UI.Forms;
 
 namespace Animals.UI.UIEngineHandshake
 {
@@ -74,5 +76,24 @@ namespace Animals.UI.UIEngineHandshake
             _gameForm.Show();
         }
 
+        public Advantage PromptPlayerToPickAdvantage(Player player)
+        {
+            Advantage advantage = null;
+            using (PickAdvantageForm pickAdvantageForm = new PickAdvantageForm(player))
+            {
+                pickAdvantageForm.ShowDialog();
+                advantage = player.Advantages[pickAdvantageForm.AdvantageIndex];
+                player.Advantages.RemoveAt(pickAdvantageForm.AdvantageIndex);
+            }
+            return advantage;
+        }
+
+        public void ShowUserDeck(Player player)
+        {
+            using (PickHeroForm pickCardForm = new PickHeroForm(this, player,"Check out your deck. If you want to continue, exit."))
+            {
+                pickCardForm.ShowDialog();                
+            }
+        }
     }
 }

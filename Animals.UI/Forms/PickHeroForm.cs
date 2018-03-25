@@ -18,7 +18,7 @@ namespace Animals.UI
         private IGameUIStream _uiStream;
         private List<PictureBox> _pictures;
 
-        public PickHeroForm(IGameUIStream uiStream, Player player)
+        public PickHeroForm(IGameUIStream uiStream, Player player,string newFormTitle="")
         {
             _uiStream = uiStream;
             InitializeComponent();
@@ -39,6 +39,10 @@ namespace Animals.UI
                     _pictures[i].Hide();
                 }
                 
+            }
+            if (newFormTitle != "")
+            {
+                Text = newFormTitle;
             }
         }
 

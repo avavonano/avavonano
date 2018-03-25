@@ -32,18 +32,21 @@ namespace Animals.UI.Forms
             {
                 using (WarningForm warning = new WarningForm("No advantage has been selected. Please try again."))
                 {
-
+                    warning.ShowDialog();
                 }
             }
-            if (selectedItems.Count>1)
+            else if (selectedItems.Count>1)
             {
                 using (WarningForm warning = new WarningForm("No more than one advantages can be applied at the same time. Please try again."))
                 {
-
+                    warning.ShowDialog();
                 }
             }
-            AdvantageIndex = advantagesListBox.SelectedIndices[0];
-            Hide();
+            else
+            {
+                AdvantageIndex = advantagesListBox.SelectedIndices[0];
+                Hide();
+            }            
         }
     }
 }
