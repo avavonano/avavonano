@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Animals.Engine.UI.Interfaces;
 using Animals.Engine.GameFlow;
 using Animals.UI.UIEngineHandshake;
+using Animals.UI.UIEngineHandshake.Support;
 
 namespace Animals.UI
 {
@@ -11,15 +12,16 @@ namespace Animals.UI
         public GameForm()
         {
             InitializeComponent();
+            txtUserName.Text = Environment.UserName;
         }       
         private void cmdStartGame_Click(object sender, EventArgs e)
         { 
             int cardsNum = 5;
             bool logingOff = false;
-            Labels userLabesl = new Labels(labelLifePlayer, labelDefensePlayer, labelAttackPlayer, labelUserSpecialAbilities);
-            Labels pcLabesl = new Labels(labelLifeComputer, labelDefenceComputer, labelAttackComputer, labelPCSpecialAbilities);
-            IUIStream userUIStream = new WindowsFormUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
-            IUIStream pcUIStream = new WindowsFormUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
+            CardLabels userLabesl = PlayerCardLabels;
+            CardLabels pcLabesl = PCCardLabels;
+            IPlayerUIStream userUIStream = new WindowsFormPlayerUIStream(playerConsole, logingOff, userLabesl, pictureBoxPlayer, userLifeBar);
+            IPlayerUIStream pcUIStream = new WindowsFormPlayerUIStream(opponentConsole, logingOff, pcLabesl, pictureBoxOpponent, opponentLifeBar);
             IGameUIStream gameUIStream = new WindowsFormGameUIStream(txtRound, txtBoxWinner,playerScoreTxtBox,pcScoreTxtBox,this);
             Player usr = new Player(txtUserName.Text, userUIStream, cardsNum);
             Player pc = new Player("Computer", pcUIStream, cardsNum);

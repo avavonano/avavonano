@@ -1,16 +1,9 @@
 ﻿using Animals.Engine;
 using Animals.Engine.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Animals.Engine.Animals;
 using Animals.Engine.GameFlow;
 using Animals.Engine.UI.Interfaces.Enums;
 using Utilities;
-using Animals.Engine.Advantages;
 using Animals.UI.Forms;
 
 namespace Animals.UI.UIEngineHandshake
@@ -57,18 +50,10 @@ namespace Animals.UI.UIEngineHandshake
             _roundBox.ReplaceText(round + "");
         }
 
-        public void UpdateScore(bool userDied, bool pcDied, ref Score score)
+        public void UpdateScore(Score score)
         {
-            if(userDied && !(pcDied))
-            {
-                score.UpdateScore(0, 1);
-                _pcScoreTxtBox.Text = score.PcScore.ToString();
-            }
-            else if (!(userDied) && pcDied)
-            {
-                score.UpdateScore(1, 0);
-                _userScoreTxtBox.Text = score.UserScore.ToString();
-            }
+            _pcScoreTxtBox.Text = score.PcScore.ToString();          
+            _userScoreTxtBox.Text = score.UserScore.ToString();            
         }
 
         public void FocusAfterPrompt()

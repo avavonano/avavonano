@@ -78,8 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIEngineHandshake\Support\CardLabels.cs" />
     <Compile Include="UIEngineHandshake\WindowsFormGameUIStream.cs" />
-    <Compile Include="UIEngineHandshake\WindowsFormUIStream.cs" />
+    <Compile Include="UIEngineHandshake\WindowsFormPlayerUIStream.cs" />
     <Compile Include="Forms\WinnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
