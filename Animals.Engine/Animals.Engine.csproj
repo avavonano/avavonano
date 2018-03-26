@@ -63,7 +63,7 @@
     <Compile Include="UI.Interfaces\Advantages\IAdvantageUIStream.cs" />
     <Compile Include="UI.Interfaces\Enums\Winner.cs" />
     <Compile Include="UI.Interfaces\IGameUIStream.cs" />
-    <Compile Include="UI.Interfaces\IUIStream.cs" />
+    <Compile Include="UI.Interfaces\IPlayerUIStream.cs" />
     <Compile Include="UI.Interfaces\Helpers\Score.cs" />
   </ItemGroup>
   <ItemGroup>

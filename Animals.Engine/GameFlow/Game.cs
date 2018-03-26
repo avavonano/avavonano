@@ -25,26 +25,22 @@ namespace Animals.Engine.GameFlow
         /// </summary>
         public void Duel()
         {
-            Score score = new Score();
+            var score = new Score(UIStream);
             CurrentCardsNumber = User.Deck.Count;
             while (CurrentCardsNumber > 0)
-            {
-                int firstPlayerFlag = Math.RandomNumberBetween(0, 2);
+            {                
                 bool userDied = false;
-                bool pcDied = false;
-                
+                bool pcDied = false;                
                 User.DrawAdvantage();
                 PC.DrawAdvantage();
                 ExcerciseAdvantages();
-
                 IAnimal userAnimal =GameUtilities.PromptPlayerToPickCard(User, UIStream);                
                 IAnimal pcAnimal =GameUtilities.GetPCAnimal(PC,User);
                 userAnimal.ShowHero();
                 pcAnimal.ShowHero();
-
-                for (int roundIdx = firstPlayerFlag; roundIdx < 1000; ++roundIdx)
+                for (int roundIdx =score.FirstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    Thread.Sleep(Math.RandomNumberBetween(500, 1500));
+                    Thread.Sleep(Math.RandomNumberBetween(0, 2000));
                     if (roundIdx % 2 == 0)
                     {
                         userAnimal.Attack(pcAnimal);
@@ -57,21 +53,8 @@ namespace Animals.Engine.GameFlow
                     pcDied = pcAnimal.CheckDeath();
                     UIStream.UpdateRound(roundIdx);
                     if (userDied || pcDied)
-                    {
-                        
-                        if(userDied && pcDied)
-                        {
-                            firstPlayerFlag = Math.RandomNumberBetween(0, 2);
-                        }
-                        else if(userDied)
-                        {
-                            firstPlayerFlag = 1;
-                        }
-                        else
-                        {
-                            firstPlayerFlag = 0;
-                        }
-                        UIStream.UpdateScore(userDied, pcDied,ref score);
+                    {                        
+                        score.UpdateScore(userDied, pcDied);
                         break;
                     }
                 }

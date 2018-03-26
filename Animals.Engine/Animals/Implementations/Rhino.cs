@@ -5,7 +5,7 @@ namespace Animals.Engine.Animals.Implementations
 {
     public class Rhino : Animal
     {
-        public Rhino(string name, bool isFury, int life, int damage, int defence, IUIStream txtBox)
+        public Rhino(string name, bool isFury, int life, int damage, int defence, IPlayerUIStream txtBox)
             : base(name, isFury, life, damage, defence, AnimalType.Rhino,"to be filled",  txtBox,"GGGGRRRRRRrrrrrrrmmmmmhhhhhhhh")
         {
         }

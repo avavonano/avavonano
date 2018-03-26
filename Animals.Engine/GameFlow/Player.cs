@@ -15,10 +15,10 @@ namespace Animals.Engine.GameFlow
     {
         public string UserName { get; set; }
         public int InitialCardsNumber { get; }
-        public IUIStream UIStream { get; set; }
+        public IPlayerUIStream UIStream { get; set; }
         public List<IAnimal> Deck { get; set; }
         public List<Advantage> Advantages { get; set; }
-        public Player(string usrName,IUIStream uiStream,  int initialCardsNumber)
+        public Player(string usrName,IPlayerUIStream uiStream,  int initialCardsNumber)
         {
 
 

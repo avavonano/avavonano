@@ -9,7 +9,7 @@ namespace Animals.Engine.Animals.Implementations
     public class Dog : Animal
     {
 
-        public Dog(string name, bool isFury, int life, int damage, int defence,IUIStream txtBox)
+        public Dog(string name, bool isFury, int life, int damage, int defence,IPlayerUIStream txtBox)
             : base(name, isFury, life, damage,defence,AnimalType.Dog,"plus half opponent's life damage",txtBox, "Woof")
         {
         }

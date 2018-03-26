@@ -8,7 +8,7 @@ namespace Animals.Engine.GameFlow
 {
     public static class Draws
     {
-        public static IAnimal GetAnimal(string name, IUIStream uiStream)
+        public static IAnimal GetAnimal(string name, IPlayerUIStream uiStream)
         {
             IAnimal animal;
             int rnd = Utilities.Math.RandomNumberBetween(0, 5);
@@ -44,7 +44,7 @@ namespace Animals.Engine.GameFlow
             }
             else if (rnd == 1)
             {
-                advantage = new RedrawDeckAdvantage();
+                advantage = new RedrawCardAdvantage();
             }
             else
             {

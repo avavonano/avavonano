@@ -1,19 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Animals.Engine.UI.Interfaces
+﻿namespace Animals.Engine.UI.Interfaces
 {
     public class Score
     {
-        public int UserScore { get; set; }
-        public int PcScore { get; set; }
-        public void UpdateScore(int userScore, int pcScore)
+        public int UserScore { get;private set; }
+        public int PcScore { get;private set; }
+        public int Ties { get;private set; }
+        public int FirstPlayerFlag { get; private set; }
+        private IGameUIStream _gameUIStream;
+        public Score(IGameUIStream gameUIStream)
         {
-            UserScore += userScore;
-            PcScore += pcScore;
+            FirstPlayerFlag = Utilities.Math.RandomNumberBetween(0, 2);
+            _gameUIStream = gameUIStream;
+        }
+        public void UpdateScore(bool userDied, bool pcDied)
+        {
+            if(userDied && pcDied)
+            {
+                ++Ties;
+                FirstPlayerFlag =Utilities.Math.RandomNumberBetween(0, 2);
+            }
+            else if(userDied)
+            {
+                FirstPlayerFlag = 0;
+                ++PcScore;
+            }
+            else
+            {
+                FirstPlayerFlag = 1;
+                ++UserScore;
+            }
+            _gameUIStream.UpdateScore(this);
         }
     }
 }

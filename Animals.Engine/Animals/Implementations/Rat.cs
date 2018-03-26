@@ -9,7 +9,7 @@ namespace Animals.Engine.Animals.Implementations
 {
     public class Rat : Animal
     {
-        public Rat(string name, bool isFury, int life, int damage, int defence, IUIStream uistream) 
+        public Rat(string name, bool isFury, int life, int damage, int defence, IPlayerUIStream uistream) 
             : base(name, isFury, life, damage, defence, AnimalType.Rat, "Sewers Dweller: Psn Dmg & Immune to Psn", uistream,"Squeeecrq")
         {
         }

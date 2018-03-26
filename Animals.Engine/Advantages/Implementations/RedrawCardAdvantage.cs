@@ -1,7 +1,6 @@
 ﻿using Animals.Engine.GameFlow;
 using Animals.Engine.Animals;
 using Utilities;
-
 namespace Animals.Engine.Advantages.Implementations
 {
     public class RedrawCardAdvantage : Advantage

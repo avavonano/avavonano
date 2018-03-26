@@ -22,7 +22,7 @@ namespace Animals.Engine.Animals
         string Name { get; set; }
         bool IsFury { get; set; }
         
-        IUIStream Console { get; set; }
+        IPlayerUIStream Console { get; set; }
         //  int Size 
 
         void Talk(string extraGreeting = "");

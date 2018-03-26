@@ -18,12 +18,12 @@ namespace Animals.Engine.Animals.Implementations
         public int Fatigue { get; set; }
         public int PoisonDamage { get; set; } = 0;
         public string SpecialAbilities { get; set; }
-        public IUIStream Console { get; set; }
+        public IPlayerUIStream Console { get; set; }
         public AnimalType AnimalType { get; set; }
         protected string greeting;
         
 
-        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, IUIStream uistream,string greeting_)
+        protected Animal(string name, bool isFury, int life, int damage, int defence,AnimalType animalType, string specialAbilities, IPlayerUIStream uistream,string greeting_)
         {
             Name = name;
             IsFury = isFury;
@@ -58,7 +58,6 @@ namespace Animals.Engine.Animals.Implementations
         public virtual bool CheckDeath()
         {
             bool res = Life <= 0;
-            //Talk("Player " + Name + " has " + Life + " left out of " + InitialLife);
             if (res) { DeathWhisper(); }
             return res;
         }
