@@ -7,7 +7,7 @@ namespace Animals.UI
         public WinnerForm(Winner winner)
         {
             InitializeComponent();
-            Multimedia.ShowWinner(winner, winnerPictureBox,winnerTextBox);
+            Multimedia.ShowWinner(winner, winnerPictureBox,winnerTextBox,false);
         }
 
         private void winnerPictureBox_Click(object sender, System.EventArgs e)

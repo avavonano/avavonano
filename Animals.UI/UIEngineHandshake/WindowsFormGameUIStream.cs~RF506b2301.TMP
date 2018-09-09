@@ -21,9 +21,9 @@ namespace Animals.UI.UIEngineHandshake
             _winnerBox = winnerBox;
             _userScoreTxtBox = userScoreTxtBox;
             _pcScoreTxtBox = pcScoreTxtBox;
-            _userScoreTxtBox.ReplaceText( "0",true);
-            _pcScoreTxtBox.ReplaceText("0", true);
-            _gameForm =gameForm;
+            _userScoreTxtBox.Text = "0";
+            _pcScoreTxtBox.Text = "0";
+            _gameForm=gameForm;
         }
 
         public void DeclareWinner(Score score, string usrName, string opponentName)
@@ -52,13 +52,13 @@ namespace Animals.UI.UIEngineHandshake
 
         public void UpdateScore(Score score)
         {
-            _pcScoreTxtBox.ReplaceText(score.PcScore.ToString(),true);          
-            _userScoreTxtBox.ReplaceText(score.UserScore.ToString(),true);            
+            _pcScoreTxtBox.Text = score.PcScore.ToString();          
+            _userScoreTxtBox.Text = score.UserScore.ToString();            
         }
 
         public void FocusAfterPrompt()
         {
-            _gameForm.Show(true);
+            _gameForm.Show();
         }
 
         public int PromptPlayerToPickAdvantage(Player player)

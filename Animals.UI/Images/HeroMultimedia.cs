@@ -8,44 +8,44 @@ namespace Animals.UI
 {
     public static class Multimedia
     {
-        public static void ShowHero(AnimalType animalType, PictureBox heroPictureBox)
+        public static void ShowHero(AnimalType animalType, PictureBox heroPictureBox,bool threadSafe)
         {
             if (animalType == AnimalType.Dog)
             {
-                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage);
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.DogImage, threadSafe);
             }
             else if (animalType == AnimalType.Cat)
             {
-                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture);
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.catPicture, threadSafe);
             }
             else if (animalType == AnimalType.Rhino)
             {
-                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.rhinoPicture);
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.rhinoPicture, threadSafe);
             }
             else if (animalType == AnimalType.Rat)
             {
-                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.justRatPicture);
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.justRatPicture, threadSafe);
             }
             else
             {
-                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage);
+                heroPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.MosquitoImage, threadSafe);
             }
         }
-        public static void ShowWinner(Winner winner, PictureBox winnerPictureBox,TextBox msg)
+        public static void ShowWinner(Winner winner, PictureBox winnerPictureBox,TextBox msg,bool threadSafe)
         {
             if (winner == Winner.User)
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.winner);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.winner, threadSafe);
                 msg.Text = "Congratulations! You are victorious.";
             }
             else if (winner == Winner.Computer)
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.loser);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.loser, threadSafe);
                 msg.Text = "You had a defeat with no honor. You just suck!";
             }
             else
             {
-                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.tie);
+                winnerPictureBox.UpdatePictureBox(global::Animals.UI.Properties.Resources.tie, threadSafe);
                 msg.Text = "No winners here. Only losers. Lol";
             }
         }

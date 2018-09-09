@@ -11,7 +11,7 @@ namespace Utilities.Forms
             foreach (var property in properties)
             {
                 var ctrl = property.GetValue(this) as Control;
-                ctrl?.Update();
+                ctrl?.Update(true);
             }
         }
     }

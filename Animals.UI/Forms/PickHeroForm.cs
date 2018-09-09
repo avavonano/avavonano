@@ -32,7 +32,7 @@ namespace Animals.UI
             {
                 if(i<player.Deck.Count)
                 {
-                    Multimedia.ShowHero(player.Deck[i].AnimalType, _pictures[i]);
+                    Multimedia.ShowHero(player.Deck[i].AnimalType, _pictures[i],false);
                 }
                 else
                 {

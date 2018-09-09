@@ -40,7 +40,7 @@ namespace Animals.Engine.GameFlow
                 pcAnimal.ShowHero();
                 for (int roundIdx =score.FirstPlayerFlag; roundIdx < 1000; ++roundIdx)
                 {
-                    Thread.Sleep(Math.RandomNumberBetween(0, 2000));
+                    //Thread.Sleep(Math.RandomNumberBetween(0, 2000));
                     if (roundIdx % 2 == 0)
                     {
                         userAnimal.Attack(pcAnimal);

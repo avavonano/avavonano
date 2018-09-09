@@ -23,24 +23,24 @@ namespace Animals.UI
         public void Talk(string phrase)
         {
             if(!LoggingOff)
-            _heroDialogueBox.AppendLine(phrase);
+            _heroDialogueBox.AppendLine(phrase, true);
         }
         public void UpdateStats(IAnimal animal)
         {
-            _labels.Life.ReplaceText((animal.Life<0? 0:animal.Life) +":"+ animal.InitialLife);
-            _labels.Attack.ReplaceText("Damage: " + animal.Damage + "");
-            _labels.Defence.ReplaceText("Defence: " + animal.Defense + "");
-            _labels.SpecialAbility.ReplaceText(animal.SpecialAbilities);
-            _lifeBar.UpdateValue(animal.Life);
+            _labels.Life.ReplaceText((animal.Life<0? 0:animal.Life) +":"+ animal.InitialLife,true);
+            _labels.Attack.ReplaceText("Damage: " + animal.Damage + "", true);
+            _labels.Defence.ReplaceText("Defence: " + animal.Defense + "", true);
+            _labels.SpecialAbility.ReplaceText(animal.SpecialAbilities, true);
+            _lifeBar.UpdateValue(animal.Life, true);
             _labels.Update();
         }
         public void ShowHero(AnimalType animalType)
         {
-            Multimedia.ShowHero(animalType, _heroPictureBox);
+            Multimedia.ShowHero(animalType, _heroPictureBox,true);
         }
         public void Reset(IAnimal animal)
         {
-            _lifeBar.Initiate(animal.InitialLife);
+            _lifeBar.Initiate(animal.InitialLife, true);
         }
     }   
 }
